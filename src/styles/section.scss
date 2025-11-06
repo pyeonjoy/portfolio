@@ -1,0 +1,57 @@
+.section {
+  min-height: 100vh;
+  padding: 8rem 2rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  &--about,
+  &--skill,
+  &--education,
+  &--career,
+  &--portfolio,
+  &--contact {
+    background: transparent;
+  }
+
+  &__container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+
+    &--about {
+      max-width: 1400px;
+    }
+  }
+
+  &__title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    color: #1E1E22;
+    margin-bottom: 3rem;
+    text-align: center;
+    letter-spacing: -0.02em;
+
+    .app--dark & {
+      color: #ffffff;
+    }
+  }
+
+  &__content {
+    color: #1E1E22;
+    line-height: 1.8;
+
+    .app--dark & {
+      color: #e0e0e0;
+    }
+  }
+
+  &__text {
+    font-size: 1.125rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+

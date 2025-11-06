@@ -1,0 +1,118 @@
+.portfolio {
+  &__item-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    min-height: 70vh;
+    padding: 0 1rem;
+    box-sizing: border-box;
+
+    @media (max-width: 968px) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  &__image-container {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+
+  &__image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed rgba(167, 171, 251, 0.3);
+    gap: 0.5rem;
+
+    .app--dark & {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(167, 171, 251, 0.2);
+    }
+
+    span {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #A7ABFB;
+      letter-spacing: 0.1em;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  &__project-id {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #A7ABFB;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  &__project-name {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: #1E1E22;
+    margin: 0;
+    letter-spacing: -0.02em;
+
+    .app--dark & {
+      color: #ffffff;
+    }
+  }
+
+  &__project-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  &__detail-item {
+    display: flex;
+    gap: 1rem;
+    font-size: 1.125rem;
+  }
+
+  &__detail-label {
+    font-weight: 600;
+    color: #1E1E22;
+    min-width: 100px;
+
+    .app--dark & {
+      color: #ffffff;
+    }
+  }
+
+  &__detail-value {
+    color: #A7ABFB;
+    font-weight: 500;
+  }
+
+  &__project-description {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #1E1E22;
+    margin: 0;
+    white-space: pre-line;
+    word-break: keep-all;
+
+    .app--dark & {
+      color: #e0e0e0;
+    }
+  }
+}
+

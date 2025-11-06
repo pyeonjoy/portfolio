@@ -1,0 +1,32 @@
+.skill {
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  &__item {
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.125rem;
+    color: #1E1E22;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    .app--dark & {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(167, 171, 251, 0.3);
+    }
+  }
+}
+

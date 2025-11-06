@@ -1,0 +1,185 @@
+.contact {
+  &__layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @media (max-width: 968px) {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__subtitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1E1E22;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+
+    .app--dark & {
+      color: #ffffff;
+    }
+  }
+
+  &__info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+
+    .app--dark & {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+
+      .app--dark & {
+        background: rgba(255, 255, 255, 0.15);
+      }
+    }
+  }
+
+  &__info-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #A7ABFB;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  &__info-value {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #1E1E22;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    .app--dark & {
+      color: #e0e0e0;
+    }
+
+    &:hover {
+      color: #A7ABFB;
+    }
+  }
+
+  &__form-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  &__form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__form-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #1E1E22;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+
+    .app--dark & {
+      color: #ffffff;
+    }
+  }
+
+  &__form-input,
+  &__form-textarea {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #1E1E22;
+    transition: all 0.3s ease;
+    resize: vertical;
+
+    .app--dark & {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: #A7ABFB;
+      background: rgba(255, 255, 255, 0.4);
+
+      .app--dark & {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: #A7ABFB;
+      }
+    }
+
+    &::placeholder {
+      color: rgba(30, 30, 34, 0.5);
+
+      .app--dark & {
+        color: rgba(255, 255, 255, 0.5);
+      }
+    }
+  }
+
+  &__form-textarea {
+    min-height: 150px;
+  }
+
+  &__form-button {
+    padding: 1rem 2rem;
+    background: rgba(167, 171, 251, 0.4);
+    border: none;
+    border-radius: 12px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1E1E22;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+
+    .app--dark & {
+      background: rgba(167, 171, 251, 0.3);
+      color: #ffffff;
+    }
+
+    &:hover {
+      background: rgba(167, 171, 251, 0.6);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(167, 171, 251, 0.3);
+
+      .app--dark & {
+        background: rgba(167, 171, 251, 0.4);
+      }
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+

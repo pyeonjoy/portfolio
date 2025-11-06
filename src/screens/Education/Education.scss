@@ -1,0 +1,41 @@
+.education {
+  &__item {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+
+    .app--dark & {
+      background: rgba(255, 255, 255, 0.05);
+    }
+  }
+
+  &__institution {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #1E1E22;
+
+    .app--dark & {
+      color: #ffffff;
+    }
+  }
+
+  &__period {
+    font-size: 1rem;
+    color: #727272;
+    margin-bottom: 1rem;
+
+    .app--dark & {
+      color: #a0a0a0;
+    }
+  }
+
+  &__description {
+    font-size: 1.125rem;
+    line-height: 1.8;
+  }
+}
+
