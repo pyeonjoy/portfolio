@@ -16,7 +16,7 @@ const Navigation: React.FC<NavigationProps> = ({
   onToggleDarkMode,
   isScrolled,
 }) => {
-  const sections = ['About', 'Portfolio', 'Skill', 'Education', 'Career', 'Contact'];
+  const sections = ['About', 'Portfolio', 'Skill', 'Strength', 'Education', 'Career', 'Contact'];
   const [showPortfolioSubmenu, setShowPortfolioSubmenu] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -29,8 +29,10 @@ const Navigation: React.FC<NavigationProps> = ({
     }
   };
 
+  const isVisible = currentSection !== '';
+  
   return (
-    <nav className={`navigation ${isScrolled ? 'navigation--scrolled' : ''}`}>
+    <nav className={`navigation ${isScrolled ? 'navigation--scrolled' : ''} ${isVisible ? 'navigation--visible' : ''}`}>
       {isMobileMenuOpen && (
         <div
           className="navigation__overlay"

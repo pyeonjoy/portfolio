@@ -1,41 +1,44 @@
 .education {
-  &__item {
-    max-width: 800px;
+  &__layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    border-radius: 16px;
 
-    .app--dark & {
-      background: rgba(255, 255, 255, 0.05);
+    @media (max-width: 968px) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
     }
   }
 
-  &__institution {
-    font-size: 1.5rem;
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  &__section-title {
+    font-size: 1.75rem;
     font-weight: 700;
-    margin-bottom: 0.5rem;
     color: #1E1E22;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
 
     .app--dark & {
       color: #ffffff;
     }
   }
 
-  &__period {
-    font-size: 1rem;
-    color: #727272;
-    margin-bottom: 1rem;
-
-    .app--dark & {
-      color: #a0a0a0;
-    }
-  }
-
-  &__description {
-    font-size: 1.125rem;
-    line-height: 1.8;
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
   }
 }
 

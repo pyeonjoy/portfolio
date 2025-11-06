@@ -25,6 +25,11 @@
     margin-bottom: 1rem;
     letter-spacing: -0.02em;
 
+    @media (max-width: 768px) {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
     .app--dark & {
       color: #ffffff;
     }

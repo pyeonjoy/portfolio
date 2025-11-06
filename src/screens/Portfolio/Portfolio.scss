@@ -4,6 +4,12 @@
     gap: 1rem;
     justify-content: center;
     margin-bottom: 3rem;
+    flex-wrap: wrap;
+
+    @media (max-width: 768px) {
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
   }
 
   &__tab {
@@ -17,6 +23,11 @@
     color: #1E1E22;
     cursor: pointer;
     transition: all 0.3s ease;
+
+    @media (max-width: 768px) {
+      padding: 0.75rem 1.25rem;
+      font-size: 1rem;
+    }
 
     .app--dark & {
       background: rgba(255, 255, 255, 0.1);
@@ -52,7 +63,8 @@
     padding: 0 4rem;
 
     @media (max-width: 768px) {
-      padding: 0 2rem;
+      padding: 0 3rem;
+      margin-top: 2rem;
     }
   }
 

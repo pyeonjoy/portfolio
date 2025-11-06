@@ -5,13 +5,20 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  overflow: visible;
+
+  @media (max-width: 768px) {
+    padding: 6rem 1rem 3rem;
+    min-height: auto;
+  }
 
   &--about,
   &--skill,
   &--education,
   &--career,
   &--portfolio,
-  &--contact {
+  &--contact,
+  &--strength {
     background: transparent;
   }
 
@@ -33,6 +40,11 @@
     text-align: center;
     letter-spacing: -0.02em;
 
+    @media (max-width: 768px) {
+      margin-bottom: 2rem;
+      font-size: clamp(2rem, 6vw, 2.5rem);
+    }
+
     .app--dark & {
       color: #ffffff;
     }
@@ -41,6 +53,7 @@
   &__content {
     color: #1E1E22;
     line-height: 1.8;
+    overflow: visible;
 
     .app--dark & {
       color: #e0e0e0;
@@ -52,6 +65,10 @@
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
   }
 }
 

@@ -4,6 +4,7 @@ import Hero from './components/Hero/Hero';
 import About from './screens/About/About';
 import Portfolio from './screens/Portfolio/Portfolio';
 import Skill from './screens/Skill/Skill';
+import Strength from './screens/Strength/Strength';
 import Education from './screens/Education/Education';
 import Career from './screens/Career/Career';
 import Contact from './screens/Contact/Contact';
@@ -40,7 +41,7 @@ const App: React.FC = () => {
     // 스크롤 이벤트 리스너
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight / 3;
-      const sections = ['About', 'Portfolio', 'Skill', 'Education', 'Career', 'Contact'];
+      const sections = ['About', 'Portfolio', 'Skill', 'Strength', 'Education', 'Career', 'Contact'];
       const heroHeight = window.innerHeight;
 
       // 스크롤 여부 확인 (Navigation 배경색 제어)
@@ -118,6 +119,13 @@ const App: React.FC = () => {
         }}
       >
         <Skill />
+      </div>
+      <div
+        ref={(el) => {
+          sectionsRef.current.strength = el;
+        }}
+      >
+        <Strength />
       </div>
       <div
         ref={(el) => {

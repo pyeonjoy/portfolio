@@ -25,6 +25,11 @@
     margin-bottom: 1rem;
     letter-spacing: -0.02em;
 
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
     .app--dark & {
       color: #ffffff;
     }
@@ -36,75 +41,5 @@
     gap: 1.5rem;
   }
 
-  &__item {
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    border-radius: 16px;
-    transition: all 0.3s ease;
-
-    .app--dark & {
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    &:hover {
-      background: rgba(255, 255, 255, 0.3);
-      transform: translateY(-2px);
-
-      .app--dark & {
-        background: rgba(255, 255, 255, 0.08);
-      }
-    }
-  }
-
-  &__company {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    color: #1E1E22;
-
-    .app--dark & {
-      color: #ffffff;
-    }
-  }
-
-  &__period {
-    font-size: 1rem;
-    color: #727272;
-    margin-bottom: 0.5rem;
-
-    .app--dark & {
-      color: #a0a0a0;
-    }
-  }
-
-  &__position {
-    font-size: 1.125rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: #A7ABFB;
-  }
-
-  &__description {
-    font-size: 1.125rem;
-    line-height: 1.8;
-    color: #1E1E22;
-    margin-bottom: 0.5rem;
-
-    .app--dark & {
-      color: #e0e0e0;
-    }
-  }
-
-  &__reason {
-    font-size: 0.875rem;
-    color: #727272;
-    margin-top: 0.5rem;
-    font-style: italic;
-
-    .app--dark & {
-      color: #a0a0a0;
-    }
-  }
 }
 

@@ -1,14 +1,25 @@
 .skill {
   &__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
+    position: relative;
+    justify-items: center;
+    overflow: visible;
+
+    @media (max-width: 968px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__item {
-    padding: 1.5rem;
+    padding: 1.5rem 1rem;
     background: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(10px);
     border-radius: 12px;
@@ -16,17 +27,119 @@
     font-weight: 600;
     font-size: 1.125rem;
     color: #1E1E22;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, z-index 0s;
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 120px;
+    overflow: visible;
+    z-index: 1;
+
+    @media (max-width: 968px) {
+      max-width: 100%;
+    }
+
+    &--active {
+      z-index: 10000;
+    }
+
+    &:hover {
+      z-index: 10000;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(167, 171, 251, 0.3);
+    }
 
     .app--dark & {
       background: rgba(255, 255, 255, 0.1);
       color: #ffffff;
     }
+  }
 
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(167, 171, 251, 0.3);
+  &__name {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #1E1E22;
+
+    .app--dark & {
+      color: #ffffff;
     }
+  }
+
+  &__score {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #A7ABFB;
+  }
+
+  &__tooltip {
+    position: absolute;
+    top: 90%;
+    left: -35px;
+    transform: translateX(-10px);
+    z-index: 99999;
+    pointer-events: auto;
+    animation: fadeInTooltip 0.3s ease;
+
+    @media (max-width: 968px) {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      left: 20px;
+      top: auto;
+      transform: none;
+      max-width: calc(100vw - 40px);
+      z-index: 99999;
+    }
+  }
+
+  &__tooltip-content {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    min-width: 300px;
+    border: 1px solid rgba(167, 171, 251, 0.3);
+
+    .app--dark & {
+      background: rgba(30, 30, 34, 0.95);
+      border-color: rgba(167, 171, 251, 0.5);
+    }
+
+    @media (max-width: 968px) {
+      max-width: 100%;
+      min-width: auto;
+    }
+  }
+
+  &__tooltip-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #1E1E22;
+    margin: 0;
+    word-break: keep-all;
+
+    .app--dark & {
+      color: #e0e0e0;
+    }
+  }
+}
+
+@keyframes fadeInTooltip {
+  from {
+    opacity: 0;
+    transform: translateX(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-10px) scale(1);
   }
 }
 

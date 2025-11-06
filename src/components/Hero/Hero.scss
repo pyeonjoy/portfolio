@@ -6,6 +6,16 @@
   justify-content: center;
   overflow: hidden;
   background: transparent;
+  margin-left: -200px;
+  padding-left: 200px;
+  width: calc(100% + 200px);
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+    padding-left: 0;
+    width: 100%;
+  }
+
 .hero__title{color: #ffffff;}
   &__background {
     position: absolute;
@@ -25,6 +35,13 @@
     align-items: center;
     justify-content: center;
 
+    @media (max-width: 768px) {
+      width: 90vw;
+      max-width: 90vw;
+      font-size: clamp(2rem, 10vw, 4rem);
+      white-space: normal;
+    }
+
     .app--dark & {
       color: rgba(167, 171, 251, 0.3);
     }
@@ -35,6 +52,10 @@
     z-index: 2;
     text-align: center;
     padding-top: 6rem;
+
+    @media (max-width: 768px) {
+      padding-top: 4rem;
+    }
   }
 
   &__title {
@@ -51,6 +72,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media (max-width: 768px) {
+      width: 80vw;
+      max-width: 80vw;
+      font-size: clamp(1.25rem, 5vw, 2rem);
+      white-space: normal;
+    }
 
     .app--dark & {
       color: #ffffff;

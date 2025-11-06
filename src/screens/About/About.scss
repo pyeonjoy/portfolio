@@ -105,6 +105,11 @@
     cursor: pointer;
     transition: all 0.3s ease;
 
+    @media (max-width: 768px) {
+      padding: 1rem;
+      font-size: 1rem;
+    }
+
     .app--dark & {
       color: #ffffff;
     }
