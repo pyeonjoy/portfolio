@@ -1,3 +1,5 @@
+@import '../../styles/typography';
+
 .contact {
   &__layout {
     display: grid;
@@ -19,20 +21,20 @@
   }
 
   &__subtitle {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #1E1E22;
+    font-size: $text-heading24-size;
+    font-weight: $weight-bold;
+    color: $color-black;
     margin-bottom: 1rem;
-    letter-spacing: -0.02em;
+    letter-spacing: $base-letter-spacing;
     text-align: center;
 
     @media (max-width: 768px) {
-      font-size: 1.25rem;
+      font-size: $text-heading20-size;
       margin-bottom: 0.75rem;
     }
 
     .app--dark & {
-      color: #ffffff;
+      color: $color-white;
     }
   }
 
@@ -62,17 +64,17 @@
   }
 
   &__info-label {
-    font-size: 0.875rem;
-    font-weight: 600;
+    font-size: $text-label14-size;
+    font-weight: $weight-semi-bold;
     color: #A7ABFB;
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
 
   &__info-value {
-    font-size: 1.125rem;
-    font-weight: 500;
-    color: #1E1E22;
+    font-size: $text-body18-size;
+    font-weight: $weight-medium;
+    color: $color-black;
     text-decoration: none;
     transition: color 0.3s ease;
 
@@ -103,14 +105,14 @@
   }
 
   &__form-label {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: #1E1E22;
+    font-size: $text-label14-size;
+    font-weight: $weight-semi-bold;
+    color: $color-black;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 
     .app--dark & {
-      color: #ffffff;
+      color: $color-white;
     }
   }
 
@@ -121,15 +123,15 @@
     backdrop-filter: blur(10px);
     border: 2px solid transparent;
     border-radius: 12px;
-    font-size: 1rem;
+    font-size: $text-body16-size;
     font-family: inherit;
-    color: #1E1E22;
+    color: $color-black;
     transition: all 0.3s ease;
     resize: vertical;
 
     .app--dark & {
       background: rgba(255, 255, 255, 0.1);
-      color: #ffffff;
+      color: $color-white;
       border-color: rgba(255, 255, 255, 0.1);
     }
 
@@ -145,7 +147,7 @@
     }
 
     &::placeholder {
-      color: rgba(30, 30, 34, 0.5);
+      color: rgba($color-black, 0.5);
 
       .app--dark & {
         color: rgba(255, 255, 255, 0.5);
@@ -162,16 +164,16 @@
     background: rgba(167, 171, 251, 0.4);
     border: none;
     border-radius: 12px;
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: #1E1E22;
+    font-size: $text-body18-size;
+    font-weight: $weight-semi-bold;
+    color: $color-black;
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 0.5rem;
 
     .app--dark & {
       background: rgba(167, 171, 251, 0.3);
-      color: #ffffff;
+      color: $color-white;
     }
 
     &:hover {

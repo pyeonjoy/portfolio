@@ -1,3 +1,5 @@
+@import '../../styles/typography';
+
 .career-item {
   padding: 2rem;
   background: rgba(255, 255, 255, 0.2);
@@ -19,19 +21,19 @@
   }
 
   &__title {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: $text-heading24-size;
+    font-weight: $weight-bold;
     margin-bottom: 0.5rem;
-    color: #1E1E22;
+    color: $color-black;
 
     .app--dark & {
-      color: #ffffff;
+      color: $color-white;
     }
   }
 
   &__period {
-    font-size: 1rem;
-    color: #727272;
+    font-size: $text-body16-size;
+    color: $color-grey;
     margin-bottom: 0.5rem;
 
     .app--dark & {
@@ -40,8 +42,8 @@
   }
 
   &__category {
-    font-size: 1rem;
-    color: #727272;
+    font-size: $text-body16-size;
+    color: $color-grey;
     margin-bottom: 0.5rem;
 
     .app--dark & {
@@ -50,23 +52,23 @@
   }
 
   &__position {
-    font-size: 1.125rem;
-    font-weight: 600;
+    font-size: $text-body18-size;
+    font-weight: $weight-semi-bold;
     margin-bottom: 1rem;
     color: #A7ABFB;
   }
 
   &__technologies {
-    font-size: 1rem;
+    font-size: $text-body16-size;
     color: #A7ABFB;
     margin-bottom: 0.5rem;
-    font-weight: 500;
+    font-weight: $weight-medium;
   }
 
   &__description {
-    font-size: 1.125rem;
+    font-size: $text-body18-size;
     line-height: 1.8;
-    color: #1E1E22;
+    color: $color-black;
     margin-bottom: 0.5rem;
 
     .app--dark & {
@@ -82,8 +84,8 @@
   }
 
   &__achievement {
-    font-size: 0.875rem;
-    color: #727272;
+    font-size: $text-label14-size;
+    color: $color-grey;
     font-style: italic;
 
     .app--dark & {
@@ -92,8 +94,8 @@
   }
 
   &__reason {
-    font-size: 0.875rem;
-    color: #727272;
+    font-size: $text-label14-size;
+    color: $color-grey;
     margin-top: 0.5rem;
     font-style: italic;
 

@@ -1,3 +1,5 @@
+@import '../../styles/typography';
+
 .about {
   &__layout {
     display: grid;
@@ -17,14 +19,18 @@
   }
 
   &__title {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
-    color: #1E1E22;
+    font-size: $text-heading32-size;
+    font-weight: $weight-bold;
+    color: $color-black;
     margin-bottom: 2rem;
-    letter-spacing: -0.02em;
+    letter-spacing: $base-letter-spacing;
+
+    @media (max-width: 768px) {
+      font-size: $text-heading24-size;
+    }
 
     .app--dark & {
-      color: #ffffff;
+      color: $color-white;
     }
   }
 
@@ -41,17 +47,17 @@
   }
 
   &__info-label {
-    font-size: 0.875rem;
-    font-weight: 600;
+    font-size: $text-label14-size;
+    font-weight: $weight-semi-bold;
     color: #A7ABFB;
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
 
   &__info-value {
-    font-size: 1.125rem;
-    font-weight: 500;
-    color: #1E1E22;
+    font-size: $text-body18-size;
+    font-weight: $weight-medium;
+    color: $color-black;
     line-height: 1.6;
 
     .app--dark & {
@@ -99,19 +105,19 @@
     border: none;
     background: transparent;
     text-align: left;
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: #1E1E22;
+    font-size: $text-body18-size;
+    font-weight: $weight-semi-bold;
+    color: $color-black;
     cursor: pointer;
     transition: all 0.3s ease;
 
     @media (max-width: 768px) {
       padding: 1rem;
-      font-size: 1rem;
+      font-size: $text-body16-size;
     }
 
     .app--dark & {
-      color: #ffffff;
+      color: $color-white;
     }
 
     &:hover {
@@ -120,7 +126,7 @@
   }
 
   &__faq-icon {
-    font-size: 1.5rem;
+    font-size: $text-heading24-size;
     font-weight: 300;
     color: #A7ABFB;
     transition: transform 0.3s ease;
@@ -145,9 +151,9 @@
 
     p {
       margin: 0;
-      font-size: 1rem;
+      font-size: $text-body16-size;
       line-height: 1.8;
-      color: #1E1E22;
+      color: $color-black;
 
       .app--dark & {
         color: #e0e0e0;

@@ -37,8 +37,32 @@ const AppContent: React.FC = () => {
   }, [isDarkMode]);
 
   useEffect(() => {
-    // 라우트가 변경되면 스크롤을 맨 위로
-    window.scrollTo(0, 0);
+    // 메인 페이지에서 스크롤 위치 저장 및 복원
+    if (location.pathname === '/') {
+      const handleScrollSave = () => {
+        sessionStorage.setItem('mainPageScrollPosition', window.scrollY.toString());
+      };
+      
+      window.addEventListener('scroll', handleScrollSave, { passive: true });
+      
+      // 저장된 스크롤 위치 복원
+      const savedScrollPosition = sessionStorage.getItem('mainPageScrollPosition');
+      if (savedScrollPosition) {
+        setTimeout(() => {
+          window.scrollTo(0, parseInt(savedScrollPosition, 10));
+        }, 100);
+      } else {
+        // 저장된 위치가 없으면 맨 위로
+        window.scrollTo(0, 0);
+      }
+      
+      return () => {
+        window.removeEventListener('scroll', handleScrollSave);
+      };
+    } else {
+      // 다른 페이지로 이동할 때는 스크롤을 맨 위로
+      window.scrollTo(0, 0);
+    }
   }, [location.pathname]);
 
   useEffect(() => {
@@ -46,11 +70,6 @@ const AppContent: React.FC = () => {
     if (location.pathname.startsWith('/portfolio/')) {
       return;
     }
-
-    // 초기 로드 시 스크롤을 맨 위로 강제 설정
-    window.scrollTo(0, 0);
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
 
     // 스크롤 이벤트 리스너
     const handleScroll = () => {

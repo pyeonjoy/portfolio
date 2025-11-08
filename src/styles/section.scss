@@ -1,3 +1,5 @@
+@import './typography';
+
 .section {
   min-height: 100vh;
   padding: 8rem 2rem 4rem;
@@ -33,25 +35,25 @@
   }
 
   .sectionTitle {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 700;
-    color: #1E1E22;
+    font-size: $text-heading32-size;
+    font-weight: $weight-bold;
+    color: $color-black;
     margin-bottom: 3rem;
     text-align: center;
-    letter-spacing: -0.02em;
+    letter-spacing: $base-letter-spacing;
 
     @media (max-width: 768px) {
       margin-bottom: 2rem;
-      font-size: clamp(2rem, 6vw, 2.5rem);
+      font-size: $text-heading24-size;
     }
 
     .app--dark & {
-      color: #ffffff;
+      color: $color-white;
     }
   }
 
   .sectionContent {
-    color: #1E1E22;
+    color: $color-black;
     line-height: 1.8;
     overflow: visible;
 
@@ -61,13 +63,13 @@
   }
 
   .sectionText {
-    font-size: 1.125rem;
+    font-size: $text-body18-size;
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
 
     @media (max-width: 768px) {
-      font-size: 1rem;
+      font-size: $text-body16-size;
     }
   }
 }

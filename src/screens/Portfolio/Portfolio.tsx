@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import PortfolioCard from '../../components/PortfolioCard/PortfolioCard';
 import { webProjects, appProjects } from '../../data/projects';
 import '../../styles/section.scss';
 import './Portfolio.scss';
@@ -28,30 +28,9 @@ const Portfolio: React.FC = () => {
               앱 포트폴리오
             </button>
           </div>
-          <div className="portfolioGrid">
+          <div className={`portfolioGrid ${activeTab === 'app' ? 'portfolioGridApp' : ''}`}>
             {projects.map((project) => (
-              <div key={project.id} className="portfolioCard">
-                <div className="portfolioCardImage">
-                  <span>960 x 540</span>
-                </div>
-                <div className="portfolioCardInfo">
-                  <div className="portfolioCardId">{project.id}.</div>
-                  <h3 className="portfolioCardName">{project.name}</h3>
-                  <div className="portfolioCardDetails">
-                    <div className="portfolioCardDetailItem">
-                      <span className="portfolioCardDetailLabel">작업기간:</span>
-                      <span className="portfolioCardDetailValue">{project.period}</span>
-                    </div>
-                    <div className="portfolioCardDetailItem">
-                      <span className="portfolioCardDetailLabel">팀 기여도:</span>
-                      <span className="portfolioCardDetailValue">{project.contribution}</span>
-                    </div>
-                  </div>
-                  <Link to={`/portfolio/${project.id}`} className="portfolioCardButton">
-                    자세히 보기
-                  </Link>
-                </div>
-              </div>
+              <PortfolioCard key={project.id} project={project} />
             ))}
           </div>
         </div>

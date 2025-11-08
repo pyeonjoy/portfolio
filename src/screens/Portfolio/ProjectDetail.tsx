@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import PortfolioItem from '../../components/PortfolioItem/PortfolioItem';
 import { getProjectById } from '../../data/projects';
 import '../../styles/section.scss';
@@ -7,7 +7,13 @@ import './ProjectDetail.scss';
 
 const ProjectDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
   const project = id ? getProjectById(id) : undefined;
+
+  const handleBackClick = () => {
+    navigate('/');
+    // 스크롤 위치 복원은 App.tsx의 useEffect에서 처리됨
+  };
 
   if (!project) {
     return (
@@ -15,9 +21,9 @@ const ProjectDetail: React.FC = () => {
         <div className="sectionContainer">
           <div className="projectDetailNotFound">
             <h2>프로젝트를 찾을 수 없습니다</h2>
-            <Link to="/portfolio" className="projectDetailBackButton">
+            <button onClick={handleBackClick} className="projectDetailBackButton">
               포트폴리오로 돌아가기
-            </Link>
+            </button>
           </div>
         </div>
       </section>
@@ -27,9 +33,9 @@ const ProjectDetail: React.FC = () => {
   return (
     <section className="section sectionPortfolio">
       <div className="sectionContainer">
-        <Link to="/portfolio" className="projectDetailBackButton">
+        <button onClick={handleBackClick} className="projectDetailBackButton">
           ← 포트폴리오로 돌아가기
-        </Link>
+        </button>
         <div className="projectDetailContent">
           <PortfolioItem project={project} />
         </div>

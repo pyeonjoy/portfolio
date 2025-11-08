@@ -1,3 +1,5 @@
+@import '../../styles/typography';
+
 .projectDetail {
   &BackButton {
     display: inline-flex;
@@ -9,16 +11,16 @@
     backdrop-filter: blur(10px);
     border-radius: 12px;
     border: none;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #1E1E22;
+    font-size: $text-body16-size;
+    font-weight: $weight-semi-bold;
+    color: $color-black;
     text-decoration: none;
     cursor: pointer;
     transition: all 0.3s ease;
 
     .app--dark & {
       background: rgba(255, 255, 255, 0.1);
-      color: #ffffff;
+      color: $color-white;
     }
 
     &:hover {
@@ -40,13 +42,13 @@
     padding: 4rem 2rem;
 
     h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #1E1E22;
+      font-size: $text-heading32-size;
+      font-weight: $weight-bold;
+      color: $color-black;
       margin-bottom: 2rem;
 
       .app--dark & {
-        color: #ffffff;
+        color: $color-white;
       }
     }
   }

@@ -1,3 +1,5 @@
+@import '../../styles/typography';
+
 .strength {
   &__grid {
     display: grid;
@@ -34,30 +36,30 @@
   }
 
   &__title {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: $text-heading24-size;
+    font-weight: $weight-bold;
     margin-bottom: 1rem;
-    color: #1E1E22;
-    letter-spacing: -0.02em;
+    color: $color-black;
+    letter-spacing: $base-letter-spacing;
 
     @media (max-width: 768px) {
-      font-size: 1.25rem;
+      font-size: $text-heading20-size;
       margin-bottom: 0.75rem;
     }
 
     .app--dark & {
-      color: #ffffff;
+      color: $color-white;
     }
   }
 
   &__description {
-    font-size: 1.125rem;
+    font-size: $text-body18-size;
     line-height: 1.8;
-    color: #1E1E22;
+    color: $color-black;
     word-break: keep-all;
 
     @media (max-width: 768px) {
-      font-size: 1rem;
+      font-size: $text-body16-size;
       line-height: 1.6;
     }
 

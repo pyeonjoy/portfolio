@@ -1,3 +1,5 @@
+@import '../../styles/typography';
+
 .education {
   &__layout {
     display: grid;
@@ -19,20 +21,20 @@
   }
 
   &__section-title {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: #1E1E22;
+    font-size: $text-heading24-size;
+    font-weight: $weight-bold;
+    color: $color-black;
     margin-bottom: 1rem;
-    letter-spacing: -0.02em;
+    letter-spacing: $base-letter-spacing;
     text-align: center;
 
     @media (max-width: 768px) {
-      font-size: 1.5rem;
+      font-size: $text-heading20-size;
       margin-bottom: 0.75rem;
     }
 
     .app--dark & {
-      color: #ffffff;
+      color: $color-white;
     }
   }
 

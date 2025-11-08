@@ -1,3 +1,5 @@
+@import '../../styles/typography';
+
 .portfolio {
   &ItemContent {
     display: grid;
@@ -42,8 +44,8 @@
     }
 
     span {
-      font-size: 1.5rem;
-      font-weight: 600;
+      font-size: $text-heading24-size;
+      font-weight: $weight-semi-bold;
       color: #A7ABFB;
       letter-spacing: 0.1em;
     }
@@ -56,22 +58,26 @@
   }
 
   &ProjectId {
-    font-size: 0.875rem;
-    font-weight: 600;
+    font-size: $text-label14-size;
+    font-weight: $weight-semi-bold;
     color: #A7ABFB;
     letter-spacing: 0.05em;
     text-transform: uppercase;
   }
 
   &ProjectName {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
-    color: #1E1E22;
+    font-size: $text-heading32-size;
+    font-weight: $weight-bold;
+    color: $color-black;
     margin: 0;
-    letter-spacing: -0.02em;
+    letter-spacing: $base-letter-spacing;
+
+    @media (max-width: 768px) {
+      font-size: $text-heading24-size;
+    }
 
     .app--dark & {
-      color: #ffffff;
+      color: $color-white;
     }
   }
 
@@ -84,34 +90,449 @@
   &DetailItem {
     display: flex;
     gap: 1rem;
-    font-size: 1.125rem;
+    font-size: $text-body18-size;
   }
 
   &DetailLabel {
-    font-weight: 600;
-    color: #1E1E22;
+    font-weight: $weight-semi-bold;
+    color: $color-black;
     min-width: 100px;
 
     .app--dark & {
-      color: #ffffff;
+      color: $color-white;
     }
   }
 
   &DetailValue {
     color: #A7ABFB;
-    font-weight: 500;
+    font-weight: $weight-medium;
   }
 
   &ProjectDescription {
-    font-size: 1rem;
+    font-size: $text-body16-size;
     line-height: 1.8;
-    color: #1E1E22;
+    color: $color-black;
     margin: 0;
     white-space: pre-line;
     word-break: keep-all;
 
     .app--dark & {
       color: #e0e0e0;
+    }
+  }
+
+  &SpecButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    background: rgba(167, 171, 251, 0.4);
+    border: none;
+    border-radius: 12px;
+    font-size: $text-body16-size;
+    font-weight: $weight-semi-bold;
+    font-family: $font-family-regular;
+    color: $color-black;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: fit-content;
+
+    .app--dark & {
+      background: rgba(167, 171, 251, 0.3);
+      color: $color-white;
+    }
+
+    &:hover {
+      background: rgba(167, 171, 251, 0.6);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(167, 171, 251, 0.3);
+
+      .app--dark & {
+        background: rgba(167, 171, 251, 0.4);
+      }
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &Buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  &SitemapModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 2rem;
+    animation: fadeIn 0.3s ease;
+
+    .app--dark & {
+      background: rgba(0, 0, 0, 0.9);
+    }
+  }
+
+  &SitemapModalContent {
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh;
+    background: $color-white;
+    border-radius: 16px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+
+    .app--dark & {
+      background: rgba($color-black, 0.9);
+    }
+  }
+
+  &SitemapCloseButton {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: rgba(167, 171, 251, 0.2);
+    border-radius: 50%;
+    font-size: $text-heading20-size;
+    color: $color-black;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 1001;
+
+    &:hover {
+      background: rgba(167, 171, 251, 0.4);
+      transform: scale(1.1);
+    }
+
+    .app--dark & {
+      background: rgba(167, 171, 251, 0.3);
+      color: $color-white;
+
+      &:hover {
+        background: rgba(167, 171, 251, 0.5);
+      }
+    }
+  }
+
+  &SitemapImage {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  &Intro {
+    margin-top: 3rem;
+    padding: 2rem 2rem;
+    background: $color-white;
+    border-radius: 16px;
+    border-top: 2px solid rgba(167, 171, 251, 0.2);
+    transition: padding 0.3s ease, margin 0.3s ease;
+
+    &.collapsed {
+      padding: 2rem 2rem;
+      margin: 0;
+
+      .portfolioIntroTitle {
+        margin: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      padding: 2rem 1rem;
+
+      &.collapsed {
+        padding: 1rem 1rem;
+
+        .portfolioIntroTitle {
+          margin: 0;
+        }
+      }
+    }
+
+    .app--dark & {
+      background: rgba($color-black, 0.5);
+      border-top-color: rgba(167, 171, 251, 0.1);
+    }
+  }
+
+  &IntroTitle {
+    font-size: $text-heading24-size;
+    font-weight: $weight-bold;
+    color: $color-black;
+    background-color: $color-white;
+    margin: 0 0 2rem 0;
+    letter-spacing: $base-letter-spacing;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+    transition: margin 0.3s ease;
+
+    @media (max-width: 768px) {
+      font-size: $text-heading20-size;
+      margin-bottom: 1.5rem;
+    }
+
+    .app--dark & {
+      color: $color-black;
+      background-color: $color-white;
+    }
+  }
+
+  &IntroToggleIcon {
+    font-size: $text-body16-size;
+    transition: transform 0.3s ease;
+    color: #A7ABFB;
+    margin-left: 1rem;
+
+    &.expanded {
+      transform: rotate(180deg);
+    }
+  }
+
+  &Images {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+
+    &.collapsed {
+      max-height: 0;
+      opacity: 0;
+      margin: 0;
+      gap: 0;
+    }
+
+    &.expanded {
+      max-height: 10000px;
+      opacity: 1;
+    }
+  }
+
+  &Image {
+    width: 25%;
+    max-width: 25%;
+    height: auto;
+    border-radius: 12px;
+    margin: 20px auto;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+  }
+
+  &TechImage {
+    width: 70%;
+    max-width: 70%;
+    height: auto;
+    border-radius: 12px;
+    margin: 20px auto;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+  }
+
+  &Section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+  }
+
+  &SectionTitle {
+    font-size: $text-heading24-size;
+    font-weight: $weight-bold;
+    color: $color-black;
+    text-align: center;
+    margin: 0 auto;
+    letter-spacing: $base-letter-spacing;
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(167, 171, 251, 0.3);
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+
+    @media (max-width: 768px) {
+      font-size: $text-heading20-size;
+      padding: 0.2rem 0.5rem;
+    }
+
+    .app--dark & {
+      color: $color-white;
+      background: rgba(167, 171, 251, 0.2);
+    }
+  }
+
+  &Boxes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+
+    @media (max-width: 968px) {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+
+  &Box {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    border: 1px solid rgba(167, 171, 251, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 20px rgba(167, 171, 251, 0.2);
+    }
+
+    .app--dark & {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(167, 171, 251, 0.1);
+    }
+  }
+
+  &BoxTitle {
+    font-size: $text-heading20-size;
+    font-weight: $weight-bold;
+    color: $color-black;
+    margin: 0;
+    letter-spacing: $base-letter-spacing;
+
+    @media (max-width: 768px) {
+      font-size: $text-body18-size;
+    }
+
+    .app--dark & {
+      color: $color-white;
+    }
+  }
+
+  &BoxText {
+    font-size: $text-body16-size;
+    font-weight: $weight-regular;
+    color: $color-black;
+    margin: 0;
+    line-height: 1.6;
+
+    @media (max-width: 768px) {
+      font-size: $text-body14-size;
+    }
+
+    .app--dark & {
+      color: #e0e0e0;
+    }
+  }
+
+  &Features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+    margin-top: 2rem;
+
+    @media (max-width: 968px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &FeatureItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(167, 171, 251, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(167, 171, 251, 0.2);
+    }
+
+    .app--dark & {
+      border-color: rgba(167, 171, 251, 0.1);
+    }
+  }
+
+  &FeatureImage {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+  }
+
+  &FeatureTitle {
+    font-size: $text-subtitle16-size;
+    font-weight: $weight-bold;
+    color: $color-black;
+    margin: 0;
+    letter-spacing: $base-letter-spacing;
+
+    @media (max-width: 768px) {
+      font-size: $text-body18-size;
+    }
+
+    .app--dark & {
+      color: $color-white;
+    }
+  }
+
+  &FeatureText {
+    font-size: $text-body14-size;
+    line-height: 1.6;
+    color: $color-grey;
+    margin: 0;
+    word-break: keep-all;
+
+    @media (max-width: 768px) {
+      font-size: $text-body13-size;
+    }
+
+    .app--dark & {
+      color: #b0b0b0;
     }
   }
 
@@ -126,14 +547,18 @@
   }
 
   &TroubleshootingTitle {
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    font-weight: 700;
-    color: #1E1E22;
+    font-size: $text-heading24-size;
+    font-weight: $weight-bold;
+    color: $color-black;
     margin: 0 0 2rem 0;
-    letter-spacing: -0.02em;
+    letter-spacing: $base-letter-spacing;
+
+    @media (max-width: 768px) {
+      font-size: $text-heading20-size;
+    }
 
     .app--dark & {
-      color: #ffffff;
+      color: $color-white;
     }
   }
 
@@ -163,7 +588,7 @@
     display: flex;
     align-items: flex-start;
     gap: 1rem;
-    font-size: 1rem;
+    font-size: $text-body16-size;
     line-height: 1.8;
   }
 
@@ -175,8 +600,8 @@
     height: 24px;
     border-radius: 50%;
     flex-shrink: 0;
-    font-weight: 700;
-    font-size: 14px;
+    font-weight: $weight-bold;
+    font-size: $text-label14-size;
   }
 
   &TroubleshootingItem--problem {
@@ -195,19 +620,19 @@
 
   &TroubleshootingItem--learning {
     .portfolioTroubleshootingIcon {
-      background-color: rgba(30, 30, 34, 0.1);
-      color: #1E1E22;
+      background-color: rgba($color-black, 0.1);
+      color: $color-black;
 
       .app--dark & {
         background-color: rgba(255, 255, 255, 0.1);
-        color: #ffffff;
+        color: $color-white;
       }
     }
   }
 
   &TroubleshootingText {
     flex: 1;
-    color: #1E1E22;
+    color: $color-black;
     word-break: keep-all;
 
     .app--dark & {
@@ -220,9 +645,9 @@
     background: rgba(167, 171, 251, 0.4);
     border: none;
     border-radius: 12px;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #1E1E22;
+    font-size: $text-body16-size;
+    font-weight: $weight-semi-bold;
+    color: $color-black;
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 0.5rem;
@@ -230,7 +655,7 @@
 
     .app--dark & {
       background: rgba(167, 171, 251, 0.3);
-      color: #ffffff;
+      color: $color-white;
     }
 
     &:hover {
@@ -254,15 +679,18 @@
   }
 
   &CodeBlock {
-    background: rgba(30, 30, 34, 0.05);
+    background: rgba($color-black, 0.05);
     border-radius: 12px;
     padding: 1.5rem;
-    overflow-x: auto;
+    max-width: 1000px;
+    width: 100%;
     margin: 0;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 0.875rem;
+    font-family: $font-family-regular;
+    font-size: $text-label14-size;
     line-height: 1.6;
     border: 1px solid rgba(167, 171, 251, 0.2);
+    overflow-wrap: break-word;
+    word-break: break-all;
 
     .app--dark & {
       background: rgba(255, 255, 255, 0.05);
@@ -270,13 +698,65 @@
     }
 
     code {
-      color: #1E1E22;
-      white-space: pre;
+      color: $color-black;
+      white-space: pre-wrap;
 
       .app--dark & {
         color: #e0e0e0;
       }
     }
+  }
+
+  &Flowchart {
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 2px solid rgba(167, 171, 251, 0.2);
+    background: transparent;
+
+    .app--dark & {
+      border-top-color: rgba(167, 171, 251, 0.1);
+      background: transparent;
+    }
+  }
+
+  &FlowchartTitle {
+    font-size: $text-heading24-size;
+    font-weight: $weight-bold;
+    color: $color-black;
+    margin: 0 0 2rem 0;
+    letter-spacing: $base-letter-spacing;
+
+    @media (max-width: 768px) {
+      font-size: $text-heading20-size;
+    }
+
+    .app--dark & {
+      color: $color-white;
+    }
+  }
+
+  &FlowchartContent {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &FlowchartItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &FlowchartImage {
+    width: auto;
+    max-width: 100%;
+    max-height: 800px;
+    height: auto;
+    border-radius: 12px;
+    background: transparent;
+    mix-blend-mode: multiply;
+    margin: 0 auto;
   }
 }
 

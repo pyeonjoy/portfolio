@@ -1,14 +1,13 @@
+@import '../../styles/typography';
+
 .hero {
   position: relative;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
   background: transparent;
   margin-left: -200px;
-  padding-left: 200px;
-  width: calc(100% + 200px);
 
   @media (max-width: 768px) {
     margin-left: 0;
@@ -16,24 +15,16 @@
     width: 100%;
   }
 
-  .heroTitle {
-    color: #ffffff;
-  }
-
   .heroBackground {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 100%;
-    max-width: 100%;
-    font-size: clamp(3rem, 8vw, 7rem);
-    font-weight: 700;
+    font-size: 8em;
+    font-weight: $weight-bold;
     color: rgba(167, 171, 251, 0.5);
     white-space: nowrap;
     text-align: center;
-    z-index: 1;
-    letter-spacing: -0.05em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,8 +32,7 @@
     @media (max-width: 768px) {
       width: 100%;
       max-width: 100%;
-      font-size: clamp(2rem, 10vw, 4rem);
-      white-space: normal;
+      font-size: 3em;
     }
 
     .app--dark & {
@@ -63,16 +53,12 @@
 
   .heroTitle {
     position: absolute;
-    top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%);
-    width: 25vw;
-    max-width: 25vw;
-    font-size: clamp(1.5rem, 3vw, 3rem);
-    font-weight: 700;
-    color: #1E1E22;
+    font-size: 3em;
+    font-weight: $weight-bold;
+    color: $color-white;
     margin: 0;
-    letter-spacing: -0.02em;
+    letter-spacing: $base-letter-spacing;
     line-height: 1.2;
     white-space: nowrap;
     text-align: center;
@@ -81,12 +67,11 @@
     @media (max-width: 768px) {
       width: 80vw;
       max-width: 80vw;
-      font-size: clamp(1.25rem, 5vw, 2rem);
-      white-space: normal;
+      font-size: $text-heading20-size;
     }
 
     .app--dark & {
-      color: #ffffff;
+      color: $color-white;
     }
   }
 }
