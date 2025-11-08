@@ -28,10 +28,10 @@ const Strength: React.FC = () => {
   ];
 
   return (
-    <section id="strength" className="section section--strength">
-      <div className="section__container">
-        <h2 className="section__title">Strength</h2>
-        <div className="section__content">
+    <section id="strength" className="section sectionStrength">
+      <div className="sectionContainer">
+        <h2 className="sectionTitle">Strength</h2>
+        <div className="sectionContent">
           <div className="strength__grid">
             {strengths.map((strength, index) => (
               <div key={index} className="strength__item">

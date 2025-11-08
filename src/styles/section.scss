@@ -12,27 +12,27 @@
     min-height: auto;
   }
 
-  &--about,
-  &--skill,
-  &--education,
-  &--career,
-  &--portfolio,
-  &--contact,
-  &--strength {
+  &.sectionAbout,
+  &.sectionSkill,
+  &.sectionEducation,
+  &.sectionCareer,
+  &.sectionPortfolio,
+  &.sectionContact,
+  &.sectionStrength {
     background: transparent;
   }
 
-  &__container {
+  .sectionContainer {
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
 
-    &--about {
+    &.sectionContainerAbout {
       max-width: 1400px;
     }
   }
 
-  &__title {
+  .sectionTitle {
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 700;
     color: #1E1E22;
@@ -50,7 +50,7 @@
     }
   }
 
-  &__content {
+  .sectionContent {
     color: #1E1E22;
     line-height: 1.8;
     overflow: visible;
@@ -60,7 +60,7 @@
     }
   }
 
-  &__text {
+  .sectionText {
     font-size: 1.125rem;
     max-width: 800px;
     margin: 0 auto;

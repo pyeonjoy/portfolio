@@ -24,6 +24,7 @@
     color: #1E1E22;
     margin-bottom: 1rem;
     letter-spacing: -0.02em;
+    text-align: center;
 
     @media (max-width: 768px) {
       font-size: 1.25rem;
@@ -44,6 +45,7 @@
     backdrop-filter: blur(10px);
     border-radius: 12px;
     transition: all 0.3s ease;
+    text-align: center;
 
     .app--dark & {
       background: rgba(255, 255, 255, 0.1);

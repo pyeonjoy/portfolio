@@ -51,10 +51,10 @@ const Education: React.FC = () => {
   ];
 
   return (
-    <section id="education" className="section section--education">
-      <div className="section__container">
-        <h2 className="section__title">Education</h2>
-        <div className="section__content">
+    <section id="education" className="section sectionEducation">
+      <div className="sectionContainer">
+        <h2 className="sectionTitle">Education</h2>
+        <div className="sectionContent">
           <div className="education__layout">
             <div className="education__section">
               <h3 className="education__section-title">교육 프로그램</h3>

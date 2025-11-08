@@ -38,8 +38,8 @@ const About: React.FC = () => {
   };
 
   return (
-    <section id="about" className="section section--about">
-      <div className="section__container section__container--about">
+    <section id="about" className="section sectionAbout">
+      <div className="sectionContainer sectionContainerAbout">
         <div className="about__layout">
           <div className="about__left">
             <h2 className="about__title">About</h2>

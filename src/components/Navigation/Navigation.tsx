@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './Navigation.scss';
 
 interface NavigationProps {
@@ -19,12 +20,24 @@ const Navigation: React.FC<NavigationProps> = ({
   const sections = ['About', 'Portfolio', 'Skill', 'Strength', 'Education', 'Career', 'Contact'];
   const [showPortfolioSubmenu, setShowPortfolioSubmenu] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleSectionClick = (section: string) => {
     if (section === 'Portfolio' && window.innerWidth <= 768) {
       setShowPortfolioSubmenu(!showPortfolioSubmenu);
     } else {
-      onSectionChange(section);
+      // 포트폴리오인 경우 메인 페이지로 이동
+      if (section === 'Portfolio') {
+        if (location.pathname !== '/') {
+          navigate('/');
+        }
+        setTimeout(() => {
+          onSectionChange(section);
+        }, 100);
+      } else {
+        onSectionChange(section);
+      }
       setIsMobileMenuOpen(false);
     }
   };
@@ -32,39 +45,39 @@ const Navigation: React.FC<NavigationProps> = ({
   const isVisible = currentSection !== '';
   
   return (
-    <nav className={`navigation ${isScrolled ? 'navigation--scrolled' : ''} ${isVisible ? 'navigation--visible' : ''}`}>
+    <nav className={`navigation ${isScrolled ? 'navigationScrolled' : ''} ${isVisible ? 'navigationVisible' : ''}`}>
       {isMobileMenuOpen && (
         <div
-          className="navigation__overlay"
+          className="navigationOverlay"
           onClick={() => setIsMobileMenuOpen(false)}
         />
       )}
-      <div className="navigation__container">
-        <div className="navigation__left">
-          <h1 className="navigation__title">Portfolio</h1>
+      <div className="navigationContainer">
+        <div className="navigationLeft">
+          <h1 className="navigationTitle">Portfolio</h1>
         </div>
         <button
-          className="navigation__hamburger"
+          className="navigationHamburger"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="메뉴 토글"
         >
-          <span className={`navigation__hamburger-line ${isMobileMenuOpen ? 'navigation__hamburger-line--open' : ''}`}></span>
-          <span className={`navigation__hamburger-line ${isMobileMenuOpen ? 'navigation__hamburger-line--open' : ''}`}></span>
-          <span className={`navigation__hamburger-line ${isMobileMenuOpen ? 'navigation__hamburger-line--open' : ''}`}></span>
+          <span className={`navigationHamburgerLine ${isMobileMenuOpen ? 'navigationHamburgerLineOpen' : ''}`}></span>
+          <span className={`navigationHamburgerLine ${isMobileMenuOpen ? 'navigationHamburgerLineOpen' : ''}`}></span>
+          <span className={`navigationHamburgerLine ${isMobileMenuOpen ? 'navigationHamburgerLineOpen' : ''}`}></span>
         </button>
-        <div className={`navigation__tabs ${isMobileMenuOpen ? 'navigation__tabs--open' : ''}`}>
+        <div className={`navigationTabs ${isMobileMenuOpen ? 'navigationTabsOpen' : ''}`}>
           {sections.map((section) => (
             <div
               key={section}
-              className={`navigation__tab-wrapper ${
-                section === 'Portfolio' ? 'navigation__tab-wrapper--portfolio' : ''
+              className={`navigationTabWrapper ${
+                section === 'Portfolio' ? 'navigationTabWrapperPortfolio' : ''
               }`}
               onMouseEnter={() => section === 'Portfolio' && setShowPortfolioSubmenu(true)}
               onMouseLeave={() => section === 'Portfolio' && setShowPortfolioSubmenu(false)}
             >
               <button
-                className={`navigation__tab ${
-                  currentSection === section ? 'navigation__tab--active' : ''
+                className={`navigationTab ${
+                  currentSection === section ? 'navigationTabActive' : ''
                 }`}
                 onClick={() => handleSectionClick(section)}
               >
@@ -72,12 +85,12 @@ const Navigation: React.FC<NavigationProps> = ({
               </button>
               {section === 'Portfolio' && showPortfolioSubmenu && (
                 <div 
-                  className="navigation__submenu"
+                  className="navigationSubmenu"
                   onMouseEnter={() => setShowPortfolioSubmenu(true)}
                   onMouseLeave={() => setShowPortfolioSubmenu(false)}
                 >
                   <button
-                    className="navigation__submenu-item"
+                    className="navigationSubmenuItem"
                     onClick={() => {
                       handleSectionClick('Portfolio');
                       setShowPortfolioSubmenu(false);
@@ -86,7 +99,7 @@ const Navigation: React.FC<NavigationProps> = ({
                     웹 포트폴리오
                   </button>
                   <button
-                    className="navigation__submenu-item"
+                    className="navigationSubmenuItem"
                     onClick={() => {
                       handleSectionClick('Portfolio');
                       setShowPortfolioSubmenu(false);
@@ -98,15 +111,15 @@ const Navigation: React.FC<NavigationProps> = ({
               )}
             </div>
           ))}
-          <label className="navigation__theme-switch">
+          <label className="navigationThemeSwitch">
             <input
               type="checkbox"
               checked={isDarkMode}
               onChange={onToggleDarkMode}
               aria-label="다크모드 토글"
             />
-            <span className={`navigation__theme-slider ${isDarkMode ? 'navigation__theme-slider--dark' : ''}`}>
-              <span className="navigation__theme-icon">
+            <span className={`navigationThemeSlider ${isDarkMode ? 'navigationThemeSliderDark' : ''}`}>
+              <span className="navigationThemeIcon">
                 {isDarkMode ? '🌙' : '☀️'}
               </span>
             </span>

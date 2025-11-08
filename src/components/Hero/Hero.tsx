@@ -4,9 +4,9 @@ import './Hero.scss';
 const Hero: React.FC = () => {
   return (
     <section className="hero">
-      <div className="hero__background">fullstack developer</div>
-      <div className="hero__content">
-        <h1 className="hero__title">풀스택 개발자 편조이입니다.</h1>
+      <div className="heroBackground">풀스택 개발자 편조이입니다</div>
+      <div className="heroContent">
+        <h1 className="heroTitle">풀스택 개발자 편조이입니다.</h1>
       </div>
     </section>
   );

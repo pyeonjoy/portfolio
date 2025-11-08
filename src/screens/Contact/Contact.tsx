@@ -26,10 +26,10 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="section section--contact">
-      <div className="section__container">
-        <h2 className="section__title">Contact</h2>
-        <div className="section__content">
+    <section id="contact" className="section sectionContact">
+      <div className="sectionContainer">
+        <h2 className="sectionTitle">Contact</h2>
+        <div className="sectionContent">
           <div className="contact__layout">
             <div className="contact__info">
               <h3 className="contact__subtitle">연락처 정보</h3>

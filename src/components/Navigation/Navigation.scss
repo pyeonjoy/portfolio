@@ -23,15 +23,25 @@
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+    background: transparent;
+
+    .app--dark & {
+      background: transparent;
+    }
   }
 
-  &--visible {
+  &.navigationVisible {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+    background: transparent;
+
+    .app--dark & {
+      background: transparent;
+    }
   }
 
-  &__overlay {
+  .navigationOverlay {
     display: none;
 
     @media (max-width: 768px) {
@@ -47,16 +57,15 @@
     }
   }
 
-  &--scrolled {
+  &.navigationScrolled {
     background: transparent;
-    backdrop-filter: none;
 
     .app--dark & {
       background: transparent;
     }
   }
 
-  &__container {
+  .navigationContainer {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -73,13 +82,13 @@
     }
   }
 
-  &__left {
+  .navigationLeft {
     display: flex;
     align-items: center;
     gap: 1rem;
   }
 
-  &__title {
+  .navigationTitle {
     font-size: 1.25rem;
     font-weight: 700;
     color: #1E1E22;
@@ -96,7 +105,7 @@
     }
   }
 
-  &__hamburger {
+  .navigationHamburger {
     display: none;
     flex-direction: column;
     justify-content: space-around;
@@ -113,7 +122,7 @@
     }
   }
 
-  &__hamburger-line {
+  .navigationHamburgerLine {
     width: 100%;
     height: 3px;
     background-color: #1E1E22;
@@ -137,7 +146,7 @@
       transform: translateY(0);
     }
 
-    &--open {
+    &.navigationHamburgerLineOpen {
       &:nth-child(1) {
         transform: translateY(9px) rotate(45deg);
       }
@@ -152,7 +161,7 @@
     }
   }
 
-  &__tabs {
+  .navigationTabs {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -181,16 +190,16 @@
         background: rgba(30, 30, 34, 0.98);
       }
 
-      &--open {
+      &.navigationTabsOpen {
         right: 0;
       }
     }
   }
 
-  &__tab-wrapper {
+  .navigationTabWrapper {
     position: relative;
 
-    &--portfolio {
+    &.navigationTabWrapperPortfolio {
       position: relative;
     }
 
@@ -200,7 +209,7 @@
     }
   }
 
-  &__submenu {
+  .navigationSubmenu {
     position: absolute;
     top: 0;
     left: 100%;
@@ -233,7 +242,7 @@
     }
   }
 
-  &__submenu-item {
+  .navigationSubmenuItem {
     display: block;
     width: 100%;
     padding: 0.75rem 1.5rem;
@@ -270,7 +279,7 @@
     }
   }
 
-  &__tab {
+  .navigationTab {
     padding: 0.75rem 1rem;
     border: none;
     background: transparent;
@@ -307,7 +316,7 @@
       }
     }
 
-    &--active {
+    &.navigationTabActive {
       color: #A7ABFB;
 
       .app--dark & {
@@ -328,7 +337,7 @@
     }
   }
 
-  &__theme-switch {
+  .navigationThemeSwitch {
     position: relative;
     display: inline-block;
     width: 50px;
@@ -350,25 +359,25 @@
       width: 0;
       height: 0;
 
-      &:checked + .navigation__theme-slider {
+      &:checked + .navigationThemeSlider {
         background-color: #A7ABFB;
 
         &::before {
           transform: translateX(24px);
         }
 
-        .navigation__theme-icon {
+        .navigationThemeIcon {
           transform: translateX(24px);
         }
       }
 
-      &:focus + .navigation__theme-slider {
+      &:focus + .navigationThemeSlider {
         box-shadow: 0 0 0 3px rgba(167, 171, 251, 0.2);
       }
     }
   }
 
-  &__theme-slider {
+  .navigationThemeSlider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -401,18 +410,18 @@
       z-index: 1;
     }
 
-    &--dark {
+    &.navigationThemeSliderDark {
       &::before {
         transform: translateX(24px);
       }
 
-      .navigation__theme-icon {
+      .navigationThemeIcon {
         transform: translateX(24px);
       }
     }
   }
 
-  &__theme-icon {
+  .navigationThemeIcon {
     position: absolute;
     font-size: 14px;
     transition: 0.3s ease;

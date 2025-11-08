@@ -60,10 +60,10 @@ const Career: React.FC = () => {
   ];
 
   return (
-    <section id="career" className="section section--career">
-      <div className="section__container">
-        <h2 className="section__title">Career</h2>
-        <div className="section__content">
+    <section id="career" className="section sectionCareer">
+      <div className="sectionContainer">
+        <h2 className="sectionTitle">Career</h2>
+        <div className="sectionContent">
           <div className="career__layout">
             <div className="career__section">
               <h3 className="career__section-title">경력</h3>
