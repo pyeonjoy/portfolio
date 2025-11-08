@@ -42,7 +42,7 @@ const Navigation: React.FC<NavigationProps> = ({
     }
   };
 
-  const isVisible = currentSection !== '';
+  const isVisible = true; // 항상 네비게이션 표시
   
   return (
     <nav className={`navigation ${isScrolled ? 'navigationScrolled' : ''} ${isVisible ? 'navigationVisible' : ''}`}>
