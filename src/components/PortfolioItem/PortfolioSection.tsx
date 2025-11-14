@@ -4,10 +4,11 @@ import './PortfolioItem.scss';
 interface PortfolioSectionProps {
   title: string;
   children: React.ReactNode;
+  defaultExpanded?: boolean;
 }
 
-const PortfolioSection: React.FC<PortfolioSectionProps> = ({ title, children }) => {
-  const [isExpanded, setIsExpanded] = useState<boolean>(false);
+const PortfolioSection: React.FC<PortfolioSectionProps> = ({ title, children, defaultExpanded = false }) => {
+  const [isExpanded, setIsExpanded] = useState<boolean>(defaultExpanded);
 
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);

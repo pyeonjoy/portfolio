@@ -30,6 +30,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({ project }) => {
   const [showCodeIndex, setShowCodeIndex] = useState<number | null>(null);
   const [showSitemap, setShowSitemap] = useState<boolean>(false);
   const [showDevelop, setShowDevelop] = useState<boolean>(false);
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
 
   // 트러블 슈팅 번호 계산 함수 (현재 항목이 속한 그룹의 problem 번호 반환)
   const getTroubleshootingNumber = (currentIndex: number, items: Array<{ type: 'problem' | 'solution' | 'learning'; text: string; code?: string }> | undefined) => {
@@ -50,12 +51,134 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({ project }) => {
     return 0;
   };
 
+  // 프로젝트 소개 이미지 배열 (Project03인 경우에만 사용)
+  const projectIntroImages = project.id === 'Project03' ? [
+    { 
+      src: '/img/interviewdot/main1.png', 
+      alt: 'Interviewdot Main 1',
+      content: (
+        <>
+          <h5 className="portfolioSectionTitle">면접 연습을 하고싶은데 어떻게 해야할지 모르겠어</h5>
+        </>
+      )
+    },
+    { 
+      src: '/img/interviewdot/main2.png', 
+      alt: 'Interviewdot Main 2',
+      content: (
+        <>
+          <div className="portfolioSection">
+            <h5 className="portfolioSectionTitle">점점 늘어나는 AI면접</h5>
+            <div className="portfolioBoxes">
+              <div className="portfolioBox">
+                <h6 className="portfolioBoxTitle">면접 질문 구성의 어려움</h6>
+                <p className="portfolioBoxText">현직 인사담당자 83%가 면접에 어려움을 느끼고 있었다.</p>
+              </div>
+              <div className="portfolioBox">
+                <h6 className="portfolioBoxTitle">시간과 비용 절감</h6>
+                <p className="portfolioBoxText">
+                  AI가 지원자의 자기소개서를 평가하는 데 소요되는 시간은 평균 3초로
+                </p>
+                <p className="portfolioBoxText">
+                  1만 명의 자기소개서를 평가하는데 걸리는 시간은 단 8시간이 소요
+                </p>
+              </div>
+              <div className="portfolioBox">
+                <h6 className="portfolioBoxTitle">공정하고 직무 중심의 채용</h6>
+                <p className="portfolioBoxText">
+                  채용 과정에서 공정성이 더욱 강조되고, 직무 중심의 인재 채용이 확산
+                </p>
+              </div>
+            </div>
+          </div>
+        </>
+      )
+    },
+    { 
+      src: '/img/interviewdot/main3.png', 
+      alt: 'Interviewdot Main 3',
+      content: (
+        <>
+          <div className="portfolioSection">
+            <h5 className="portfolioSectionTitle">AI면접 응시자의 이점</h5>
+            <div className="portfolioBoxes">
+              <div className="portfolioBox">
+                <h6 className="portfolioBoxTitle">공정한 채용</h6>
+                <p className="portfolioBoxText">
+                  인공지능(AI)는 기업이 미리 설정해 놓은 객관적인 데이터로만 구직자를 평가하기 때문에 보다 공정한 채용 전형 진행이 가능
+                </p>
+              </div>
+              <div className="portfolioBox">
+                <h6 className="portfolioBoxTitle">면접 응시 횟수 증가</h6>
+                <p className="portfolioBoxText">
+                  사람 면접관이 일일이 면접을 보지 않아도 되기 때문에, 면접전형 응시자수를 대폭 늘릴 수 있어요.
+                </p>
+              </div>
+              <div className="portfolioBox">
+                <h6 className="portfolioBoxTitle">응시자에게 맞춘 면접시간</h6>
+                <p className="portfolioBoxText">
+                  응시자들의 시간적, 공간적 상황에 맞춰 면접을 준비하고 기기에 상관없이 편하게 임할 수 있는 장점
+                </p>
+              </div>
+            </div>
+          </div>
+        </>
+      )
+    },
+  ] : [];
+
+  const handlePrevSlide = () => {
+    if (projectIntroImages.length > 0) {
+      setCurrentSlide((prev) => (prev === 0 ? projectIntroImages.length - 1 : prev - 1));
+    }
+  };
+
+  const handleNextSlide = () => {
+    if (projectIntroImages.length > 0) {
+      setCurrentSlide((prev) => (prev === projectIntroImages.length - 1 ? 0 : prev + 1));
+    }
+  };
+
   return (
     <div className="portfolioItemContent">
       <div className="portfolioImageContainer">
-        <div className="portfolioImagePlaceholder">
-          <span>960 x 540</span>
-        </div>
+        {project.id === 'Project03' && projectIntroImages.length > 0 ? (
+          <div className="portfolioImagePlaceholder portfolioImagePlaceholder--swiper">
+            <div className="portfolioSwiperWrapper">
+              <button className="portfolioSwiperButton portfolioSwiperButton--prev" onClick={handlePrevSlide}>
+                ‹
+              </button>
+              <div className="portfolioSwiperViewport">
+                <div 
+                  className="portfolioSwiperTrack"
+                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                >
+                  {projectIntroImages.map((slide, index) => (
+                    <div key={index} className="portfolioSwiperSlide">
+                      <img src={slide.src} alt={slide.alt} className="portfolioSwiperImage" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <button className="portfolioSwiperButton portfolioSwiperButton--next" onClick={handleNextSlide}>
+                ›
+              </button>
+            </div>
+            <div className="portfolioSwiperPagination">
+              {projectIntroImages.map((_, index) => (
+                <button
+                  key={index}
+                  className={`portfolioSwiperDot ${index === currentSlide ? 'active' : ''}`}
+                  onClick={() => setCurrentSlide(index)}
+                />
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div className="portfolioImagePlaceholder">
+            <span>960 x 540</span>
+          </div>
+        )}
       </div>
       <div className="portfolioInfo">
         <div className="portfolioProjectId">{project.id}.</div>
@@ -129,59 +252,13 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({ project }) => {
             </div>
           </div>
         )}
-        {project.id === 'Project03' && (
-          <PortfolioSection title="프로젝트 소개">
-            <img src="/img/interviewdot/main1.png" alt="Interviewdot Main 1" className="portfolioImage" />
-            <h5 className="portfolioSectionTitle">면접 연습을 하고싶은데 어떻게 해야할지 모르겠어</h5>
-            <img src="/img/interviewdot/main2.png" alt="Interviewdot Main 2" className="portfolioImage" />
-            <div className="portfolioSection">
-              <h5 className="portfolioSectionTitle">점점 늘어나는 AI면접</h5>
-              <div className="portfolioBoxes">
-                <div className="portfolioBox">
-                  <h6 className="portfolioBoxTitle">면접 질문 구성의 어려움</h6>
-                  <p className="portfolioBoxText">현직 인사담당자 83%가 면접에 어려움을 느끼고 있었다.</p>
-                </div>
-                <div className="portfolioBox">
-                  <h6 className="portfolioBoxTitle">시간과 비용 절감</h6>
-                  <p className="portfolioBoxText">
-                    AI가 지원자의 자기소개서를 평가하는 데 소요되는 시간은 평균 3초로
-                  </p>
-                  <p className="portfolioBoxText">
-                    1만 명의 자기소개서를 평가하는데 걸리는 시간은 단 8시간이 소요
-                  </p>
-                </div>
-                <div className="portfolioBox">
-                  <h6 className="portfolioBoxTitle">공정하고 직무 중심의 채용</h6>
-                  <p className="portfolioBoxText">
-                    채용 과정에서 공정성이 더욱 강조되고, 직무 중심의 인재 채용이 확산
-                  </p>
-                </div>
+        {project.id === 'Project03' && projectIntroImages.length > 0 && (
+          <PortfolioSection title="기획의도" defaultExpanded={true}>
+            {projectIntroImages.map((slide, index) => (
+              <div key={index} className={`portfolioSwiperContent ${index === currentSlide ? 'active' : ''}`}>
+                {slide.content}
               </div>
-            </div>
-            <img src="/img/interviewdot/main3.png" alt="Interviewdot Main 3" className="portfolioImage" />
-            <div className="portfolioSection">
-              <h5 className="portfolioSectionTitle">AI면접 응시자의 이점</h5>
-              <div className="portfolioBoxes">
-                <div className="portfolioBox">
-                  <h6 className="portfolioBoxTitle">공정한 채용</h6>
-                  <p className="portfolioBoxText">
-                    인공지능(AI)는 기업이 미리 설정해 놓은 객관적인 데이터로만 구직자를 평가하기 때문에 보다 공정한 채용 전형 진행이 가능
-                  </p>
-                </div>
-                <div className="portfolioBox">
-                  <h6 className="portfolioBoxTitle">면접 응시 횟수 증가</h6>
-                  <p className="portfolioBoxText">
-                    사람 면접관이 일일이 면접을 보지 않아도 되기 때문에, 면접전형 응시자수를 대폭 늘릴 수 있어요.
-                  </p>
-                </div>
-                <div className="portfolioBox">
-                  <h6 className="portfolioBoxTitle">응시자에게 맞춘 면접시간</h6>
-                  <p className="portfolioBoxText">
-                    응시자들의 시간적, 공간적 상황에 맞춰 면접을 준비하고 기기에 상관없이 편하게 임할 수 있는 장점
-                  </p>
-                </div>
-              </div>
-            </div>
+            ))}
             <div className="portfolioSection">
               <h5 className="portfolioSectionTitle">프로젝트 주요 기능</h5>
               <div className="portfolioFeatures">
