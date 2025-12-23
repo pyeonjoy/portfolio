@@ -1,34 +1,34 @@
-import React, { useState } from 'react';
-import PortfolioCard from '../../components/PortfolioCard/PortfolioCard';
-import { webProjects, appProjects } from '../../data/projects';
-import '../../styles/section.scss';
-import './Portfolio.scss';
+import React, { useState } from "react";
+import PortfolioCard from "../../components/PortfolioCard/PortfolioCard";
+import { webProjects, appProjects } from "../../data/projectsData";
+import "../../styles/section.scss";
+import "../../styles/home/Portfolio.css";
 
 const Portfolio: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'web' | 'app'>('web');
+  const [activeTab, setActiveTab] = useState<"web" | "app">("web");
 
-  const projects = activeTab === 'web' ? webProjects : appProjects;
+  const projects = activeTab === "web" ? webProjects : appProjects;
 
   return (
     <section id="portfolio" className="section sectionPortfolio">
       <div className="sectionContainer">
         <h2 className="sectionTitle">Portfolio</h2>
         <div className="sectionContent">
-          <div className="portfolioTabs">
+          <div className="tabs">
             <button
-              className={`portfolioTab ${activeTab === 'web' ? 'portfolioTabActive' : ''}`}
-              onClick={() => setActiveTab('web')}
+              className={`tab ${activeTab === "web" ? "tabActive" : ""}`}
+              onClick={() => setActiveTab("web")}
             >
               웹 포트폴리오
             </button>
             <button
-              className={`portfolioTab ${activeTab === 'app' ? 'portfolioTabActive' : ''}`}
-              onClick={() => setActiveTab('app')}
+              className={`tab ${activeTab === "app" ? "tabActive" : ""}`}
+              onClick={() => setActiveTab("app")}
             >
               앱 포트폴리오
             </button>
           </div>
-          <div className={`portfolioGrid ${activeTab === 'app' ? 'portfolioGridApp' : ''}`}>
+          <div className={`portfolioGrid ${activeTab === "app" ? "gridApp" : ""}`}>
             {projects.map((project) => (
               <PortfolioCard key={project.id} project={project} />
             ))}

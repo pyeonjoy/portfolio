@@ -1,0 +1,138 @@
+.skillGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  justify-items: center;
+  overflow: visible;
+}
+
+@media (max-width: 968px) {
+  .skillGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skillGrid .item {
+  padding: 1.5rem 1rem 1rem 1rem;
+  background: rgba(167, 171, 251, 0.2) !important;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 18px;
+  color: #1e1e22;
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+@media (max-width: 968px) {
+  .skillGrid .item {
+    max-width: 100%;
+  }
+}
+
+.skillGrid .itemActive {
+  z-index: 10000;
+}
+
+.skillGrid .item:hover {
+  border: 1px solid rgba(167, 171, 251, 0.3);
+}
+
+.app--dark .skillGrid .item {
+  background: rgba(167, 171, 251, 0.2) !important;
+  color: white;
+}
+
+.name {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  color: #1e1e22;
+}
+
+.app--dark .name {
+  color: white;
+}
+
+.tooltip {
+  position: absolute;
+  top: 90%;
+  left: -35px;
+  transform: translateX(-10px);
+  z-index: 99999;
+  pointer-events: auto;
+}
+
+@media (max-width: 968px) {
+  .tooltip {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+    top: auto;
+    transform: none;
+    max-width: calc(100vw - 40px);
+    z-index: 99999;
+  }
+}
+
+.tooltipContent {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  min-width: 300px;
+  border: none;
+}
+
+.app--dark .tooltipContent {
+  background: rgba(30, 30, 34, 0.95);
+  border-color: rgba(167, 171, 251, 0.5);
+}
+
+@media (max-width: 968px) {
+  .tooltipContent {
+    max-width: 100%;
+    min-width: auto;
+  }
+}
+
+.tooltipDescription {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #1e1e22;
+  margin: 0;
+}
+
+.app--dark .tooltipDescription {
+  color: #e0e0e0;
+}
+
+@keyframes fadeInTooltip {
+  from {
+    opacity: 0;
+    transform: translateX(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-10px) scale(1);
+  }
+}

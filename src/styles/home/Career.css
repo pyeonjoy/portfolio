@@ -1,0 +1,77 @@
+.careerGrid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (max-width: 968px) {
+  .careerGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.careerSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.careerTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e1e22;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .careerTitle {
+    font-size: 20px;
+    margin-bottom: 0.75rem;
+  }
+}
+
+.app--dark .careerTitle {
+  color: white;
+}
+
+.careerList {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(167, 171, 251, 0.3) transparent;
+  padding-bottom: 1rem;
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.careerList::-webkit-scrollbar {
+  height: 8px;
+}
+
+.careerList::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.careerList::-webkit-scrollbar-thumb {
+  background: rgba(167, 171, 251, 0.3);
+  border-radius: 4px;
+}
+
+/* Career 섹션의 CareerItem만 가로 스크롤 스타일 적용 */
+.careerList .careerItem {
+  flex: 0 0 calc(28.57% - 1.07rem);
+  min-width: 400px;
+  user-select: none;
+}

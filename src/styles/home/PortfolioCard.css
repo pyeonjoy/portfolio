@@ -1,0 +1,145 @@
+.card {
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(167, 171, 251, 0.2);
+  width: 100%;
+}
+
+.app--dark .card {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(167, 171, 251, 0.3);
+}
+
+.app--dark .card:hover {
+  box-shadow: 0 10px 30px rgba(167, 171, 251, 0.2);
+}
+
+.image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid rgba(167, 171, 251, 0.2);
+}
+
+.app--dark .image {
+  border-bottom-color: rgba(167, 171, 251, 0.1);
+}
+
+.image span {
+  font-size: 20px;
+  font-weight: 600;
+  color: #a7abfb;
+  letter-spacing: 0.1em;
+}
+
+.info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1;
+}
+
+.id {
+  font-size: 14px;
+  font-weight: 600;
+  color: #a7abfb;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.name {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e1e22;
+}
+
+.app--dark .name {
+  color: white;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.detailItem {
+  display: flex;
+  gap: 1rem;
+  font-size: 16px;
+}
+
+.detailLabel {
+  font-weight: 600;
+  color: #1e1e22;
+  min-width: 80px;
+}
+
+.app--dark .detailLabel {
+  color: white;
+}
+
+.detailValue {
+  color: #a7abfb;
+  font-weight: 00;
+}
+
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.techTag {
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #a7abfb;
+  border: 1px solid rgba(167, 171, 251, 0.3);
+}
+
+.app--dark .techTag {
+  background: rgba(167, 171, 251, 0.15);
+  border-color: rgba(167, 171, 251, 0.25);
+}
+
+.button {
+  margin-top: auto;
+  padding: 1rem 1rem;
+  background: rgba(167, 171, 251, 0.4);
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.app--dark .button {
+  background: rgba(167, 171, 251, 0.3);
+  color: white;
+}
+
+.button:hover {
+  background: rgba(167, 171, 251, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(167, 171, 251, 0.3);
+}
+
+.app--dark .button:hover {
+  background: rgba(167, 171, 251, 0.4);
+}

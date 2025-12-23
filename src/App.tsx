@@ -1,19 +1,19 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
-import Navigation from './components/Navigation/Navigation';
-import Hero from './components/Hero/Hero';
-import About from './screens/About/About';
-import Portfolio from './screens/Portfolio/Portfolio';
-import ProjectDetail from './screens/Portfolio/ProjectDetail';
-import Skill from './screens/Skill/Skill';
-import Strength from './screens/Strength/Strength';
-import Education from './screens/Education/Education';
-import Career from './screens/Career/Career';
-import Contact from './screens/Contact/Contact';
-import './App.scss';
+import React, { useState, useEffect, useRef } from "react";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import Navigation from "./components/Navigation/Navigation";
+import Hero from "./screens/Home/Hero";
+import About from "./screens/Home/About";
+import Portfolio from "./screens/Portfolio/Portfolio";
+import ProjectDetail from "./screens/Portfolio/ProjectDetail";
+import Skill from "./screens/Home/Skill";
+import Strength from "./screens/Home/Strength";
+import Education from "./screens/Home/Education";
+import Career from "./screens/Home/Career";
+import Contact from "./screens/Home/Contact";
+import "./App.scss";
 
 const AppContent: React.FC = () => {
-  const [currentSection, setCurrentSection] = useState('');
+  const [currentSection, setCurrentSection] = useState("");
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const sectionsRef = useRef<{ [key: string]: HTMLElement | null }>({});
@@ -22,31 +22,36 @@ const AppContent: React.FC = () => {
 
   useEffect(() => {
     // 로컬 스토리지에서 다크모드 설정 불러오기
-    const savedDarkMode = localStorage.getItem('darkMode') === 'true';
+    const savedDarkMode = localStorage.getItem("darkMode") === "true";
     setIsDarkMode(savedDarkMode);
   }, []);
 
   useEffect(() => {
     // 다크모드 클래스 적용
     if (isDarkMode) {
-      document.documentElement.classList.add('app--dark');
+      document.documentElement.classList.add("app--dark");
     } else {
-      document.documentElement.classList.remove('app--dark');
+      document.documentElement.classList.remove("app--dark");
     }
-    localStorage.setItem('darkMode', isDarkMode.toString());
+    localStorage.setItem("darkMode", isDarkMode.toString());
   }, [isDarkMode]);
 
   useEffect(() => {
     // 메인 페이지에서 스크롤 위치 저장 및 복원
-    if (location.pathname === '/') {
+    if (location.pathname === "/") {
       const handleScrollSave = () => {
-        sessionStorage.setItem('mainPageScrollPosition', window.scrollY.toString());
+        sessionStorage.setItem(
+          "mainPageScrollPosition",
+          window.scrollY.toString()
+        );
       };
-      
-      window.addEventListener('scroll', handleScrollSave, { passive: true });
-      
+
+      window.addEventListener("scroll", handleScrollSave, { passive: true });
+
       // 저장된 스크롤 위치 복원
-      const savedScrollPosition = sessionStorage.getItem('mainPageScrollPosition');
+      const savedScrollPosition = sessionStorage.getItem(
+        "mainPageScrollPosition"
+      );
       if (savedScrollPosition) {
         setTimeout(() => {
           window.scrollTo(0, parseInt(savedScrollPosition, 10));
@@ -55,9 +60,9 @@ const AppContent: React.FC = () => {
         // 저장된 위치가 없으면 맨 위로
         window.scrollTo(0, 0);
       }
-      
+
       return () => {
-        window.removeEventListener('scroll', handleScrollSave);
+        window.removeEventListener("scroll", handleScrollSave);
       };
     } else {
       // 다른 페이지로 이동할 때는 스크롤을 맨 위로
@@ -67,14 +72,22 @@ const AppContent: React.FC = () => {
 
   useEffect(() => {
     // 포트폴리오 상세 페이지에서는 섹션 감지 비활성화
-    if (location.pathname.startsWith('/portfolio/')) {
+    if (location.pathname.startsWith("/portfolio/")) {
       return;
     }
 
     // 스크롤 이벤트 리스너
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight / 3;
-      const sections = ['About', 'Portfolio', 'Skill', 'Strength', 'Education', 'Career', 'Contact'];
+      const sections = [
+        "About",
+        "Portfolio",
+        "Career",
+        "Skill",
+        "Strength",
+        "Education",
+        "Contact",
+      ];
       const heroHeight = window.innerHeight;
 
       // 스크롤 여부 확인 (Navigation 배경색 제어)
@@ -82,7 +95,7 @@ const AppContent: React.FC = () => {
 
       // Hero 섹션에 있을 때는 아무 섹션도 선택하지 않음
       if (window.scrollY < heroHeight * 0.8) {
-        setCurrentSection('');
+        setCurrentSection("");
         return;
       }
 
@@ -101,49 +114,49 @@ const AppContent: React.FC = () => {
 
     // 약간의 지연 후 스크롤 이벤트 리스너 추가
     const timer = setTimeout(() => {
-      window.addEventListener('scroll', handleScroll, { passive: true });
+      window.addEventListener("scroll", handleScroll, { passive: true });
     }, 100);
 
     return () => {
       clearTimeout(timer);
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [location.pathname]);
 
   const handleSectionChange = (section: string) => {
     // 포트폴리오인 경우 메인 페이지로 이동
-    if (section === 'Portfolio') {
-      if (location.pathname !== '/') {
-        navigate('/');
+    if (section === "Portfolio") {
+      if (location.pathname !== "/") {
+        navigate("/");
         setTimeout(() => {
           const element = sectionsRef.current[section.toLowerCase()];
           if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
+            element.scrollIntoView({ behavior: "smooth" });
             setCurrentSection(section);
           }
         }, 100);
       } else {
         const element = sectionsRef.current[section.toLowerCase()];
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          element.scrollIntoView({ behavior: "smooth" });
           setCurrentSection(section);
         }
       }
     } else {
       // 메인 페이지가 아니면 먼저 이동
-      if (location.pathname !== '/') {
-        navigate('/');
+      if (location.pathname !== "/") {
+        navigate("/");
         setTimeout(() => {
           const element = sectionsRef.current[section.toLowerCase()];
           if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
+            element.scrollIntoView({ behavior: "smooth" });
             setCurrentSection(section);
           }
         }, 100);
       } else {
         const element = sectionsRef.current[section.toLowerCase()];
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          element.scrollIntoView({ behavior: "smooth" });
           setCurrentSection(section);
         }
       }
@@ -165,60 +178,64 @@ const AppContent: React.FC = () => {
       />
       <Routes>
         <Route path="/portfolio/:id" element={<ProjectDetail />} />
-        <Route path="/" element={
-          <>
-            <Hero />
-            <div
-              ref={(el) => {
-                sectionsRef.current.about = el;
-              }}
-            >
-              <About />
-            </div>
-            <div
-              ref={(el) => {
-                sectionsRef.current.portfolio = el;
-              }}
-            >
-              <Portfolio />
-            </div>
-            <div
-              ref={(el) => {
-                sectionsRef.current.skill = el;
-              }}
-            >
-              <Skill />
-            </div>
-            <div
-              ref={(el) => {
-                sectionsRef.current.strength = el;
-              }}
-            >
-              <Strength />
-            </div>
-            <div
-              ref={(el) => {
-                sectionsRef.current.education = el;
-              }}
-            >
-              <Education />
-            </div>
-            <div
-              ref={(el) => {
-                sectionsRef.current.career = el;
-              }}
-            >
-              <Career />
-            </div>
-            <div
-              ref={(el) => {
-                sectionsRef.current.contact = el;
-              }}
-            >
-              <Contact />
-            </div>
-          </>
-        } />
+        <Route
+          path="/"
+          element={
+            <>
+              <Hero />
+              <div
+                ref={(el) => {
+                  sectionsRef.current.about = el;
+                }}
+              >
+                <About />
+              </div>
+              <div
+                ref={(el) => {
+                  sectionsRef.current.portfolio = el;
+                }}
+              >
+                <Portfolio />
+              </div>
+              <div
+                ref={(el) => {
+                  sectionsRef.current.skill = el;
+                }}
+              >
+                <Skill />
+              </div>
+              <div
+                ref={(el) => {
+                  sectionsRef.current.career = el;
+                }}
+              >
+                <Career />
+              </div>
+              <div
+                ref={(el) => {
+                  sectionsRef.current.strength = el;
+                }}
+              >
+                <Strength />
+              </div>
+              <div
+                ref={(el) => {
+                  sectionsRef.current.education = el;
+                }}
+              >
+                <Education />
+              </div>
+
+              <div
+                ref={(el) => {
+                  sectionsRef.current.contact = el;
+                }}
+              >
+                <Contact />
+              </div>
+            </>
+          }
+        />
       </Routes>
     </div>
   );
@@ -229,4 +246,3 @@ const App: React.FC = () => {
 };
 
 export default App;
-

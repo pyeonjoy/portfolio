@@ -1,0 +1,100 @@
+.tabs {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .tabs {
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.tab {
+  padding: 1rem 2rem;
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e1e22;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .tab {
+    padding: 0.75rem 1.25rem;
+    font-size: 16px;
+  }
+}
+
+.app--dark .tab {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.tab:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.app--dark .tab:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.tabActive {
+  background: rgba(167, 171, 251, 0.4);
+  color: #1e1e22;
+  box-shadow: 0 4px 15px rgba(167, 171, 251, 0.3);
+}
+
+.app--dark .tabActive {
+  background: rgba(167, 171, 251, 0.3);
+  color: white;
+}
+
+.portfolioGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (max-width: 1400px) {
+  .portfolioGrid {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 968px) {
+  .portfolioGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolioGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.gridApp {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 800px;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .gridApp {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+}

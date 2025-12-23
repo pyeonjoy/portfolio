@@ -1,0 +1,77 @@
+.educationItem {
+  padding: 2rem;
+  border: 1px solid rgba(167, 171, 251, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+}
+
+.app--dark .educationItem {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.educationItemTitle {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #1e1e22;
+}
+
+.app--dark .educationItemTitle {
+  color: white;
+}
+
+.educationItemPeriod {
+  font-size: 16px;
+  color: #727272;
+  margin-bottom: 0.5rem;
+}
+
+.app--dark .educationItemPeriod {
+  color: #a0a0a0;
+}
+
+.educationItemCategory {
+  font-size: 16px;
+  color: #727272;
+  margin-bottom: 0.5rem;
+}
+
+.app--dark .educationItemCategory {
+  color: #a0a0a0;
+}
+
+.educationItemTechnologies {
+  font-size: 16px;
+  color: #a7abfb;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.educationItemDescription {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #1e1e22;
+  margin-bottom: 0.5rem;
+}
+
+.app--dark .educationItemDescription {
+  color: #e0e0e0;
+}
+
+.educationItemAchievements {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.educationItemAchievement {
+  font-size: 14px;
+  color: #727272;
+  font-style: italic;
+}
+
+.app--dark .educationItemAchievement {
+  color: #a0a0a0;
+}
+

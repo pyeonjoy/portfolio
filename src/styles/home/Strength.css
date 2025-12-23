@@ -1,0 +1,61 @@
+.strengthGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 968px) {
+  .strengthGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.strengthGrid .item {
+  padding: 2rem;
+  border: 1px solid rgba(167, 171, 251, 0.2);
+  border-radius: 16px;
+}
+
+.app--dark .strengthGrid .item {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.strengthGrid .title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #1e1e22;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 768px) {
+  .strengthGrid .title {
+    font-size: 20px;
+    margin-bottom: 0.75rem;
+  }
+}
+
+.app--dark .strengthGrid .title {
+  color: white;
+}
+
+.strengthGrid .description {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #1e1e22;
+  word-break: keep-all;
+}
+
+@media (max-width: 768px) {
+  .strengthGrid .description {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+}
+
+.app--dark .strengthGrid .description {
+  color: #e0e0e0;
+}

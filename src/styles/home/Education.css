@@ -1,0 +1,47 @@
+.educationGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+@media (max-width: 968px) {
+  .educationGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.educationSection {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.educationTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e1e22;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .educationTitle {
+    font-size: 20px;
+    margin-bottom: 0.75rem;
+  }
+}
+
+.app--dark .educationTitle {
+  color: white;
+}
+
+.educationList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}

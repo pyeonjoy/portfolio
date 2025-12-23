@@ -1,0 +1,133 @@
+/* PortfolioSwiper Styles */
+
+.portfolioImagePlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.portfolioImagePlaceholder--swiper {
+  padding: 1.5rem;
+  border: 2px solid rgba(167, 171, 251, 0.3);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 800px;
+  border-radius: 15px;
+}
+
+.portfolioImagePlaceholder--swiper:has(.portfolioSwiperImage:not([src])) {
+  min-height: auto;
+  padding: 0;
+  border: none;
+}
+
+.portfolioImagePlaceholder--swiper:has(.careerItem) {
+  min-height: auto;
+  padding: 0;
+  border: none;
+}
+
+.portfolioSwiperWrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex: 1;
+}
+
+.portfolioSwiperButton {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  background-color: transparent;
+  border: none;
+  font-size: 50px;
+  color: #1400ff;
+}
+
+.portfolioSwiperViewport {
+  flex: 1;
+  overflow: hidden;
+}
+
+.portfolioSwiperTrack {
+  display: flex;
+  position: relative;
+}
+
+.portfolioSwiperSlide {
+  min-width: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  gap: 1.5rem;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.portfolioSwiperSlide:has(.careerItem) {
+  align-items: stretch;
+  justify-content: center;
+}
+
+.portfolioSwiperImage {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.portfolioSwiperContentOverlay:not(.active) {
+  display: none !important;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+}
+
+.portfolioSwiperContent {
+  width: 100%;
+  display: none;
+  flex-direction: column;
+}
+
+.portfolioSwiperContent.active {
+  display: flex;
+}
+
+.portfolioSwiperPagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.portfolioSwiperDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(167, 171, 251, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.portfolioSwiperDot:hover {
+  background: #1400ff;
+  transform: scale(1.2);
+}
+
+.portfolioSwiperDot.active {
+  background: #1400ff;
+  transform: scale(1.3);
+}
