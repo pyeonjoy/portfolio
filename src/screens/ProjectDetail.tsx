@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import PortfolioItemWeb from "../components/ProjectItem/ProjectItemWeb";
 import PortfolioItemApp from "../components/ProjectItem/ProjectItemApp";
 import { getProjectById, webProjects } from "../data/projectsData";
-import "../styles/section.scss";
+import "../styles/section.css";
 import "../styles/projectItem/ProjectDetail.css";
 
 const ProjectDetail: React.FC = () => {

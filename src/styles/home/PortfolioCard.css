@@ -134,7 +134,13 @@
   text-align: center;
   cursor: pointer;
 }
-
+@media (max-width: 768px) {
+  .button {
+    font-size: 13px;
+    padding: 0.5rem 0rem 0.3rem 0rem;
+    border-radius: 5px;
+  }
+}
 .app--dark .button {
   background: rgba(167, 171, 251, 0.3);
   color: white;

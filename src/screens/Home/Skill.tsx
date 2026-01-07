@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import "../../styles/section.scss";
+import "../../styles/section.css";
 import "../../styles/home/Skill.css";
 
 interface SkillItem {
@@ -11,6 +11,7 @@ const Skill: React.FC = () => {
   const [clickedSkill, setClickedSkill] = useState<number | null>(null);
   const [hoveredSkill, setHoveredSkill] = useState<number | null>(null);
   const skillRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const tooltipRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const skills: SkillItem[] = [
     {
@@ -54,28 +55,67 @@ const Skill: React.FC = () => {
     },
   ];
 
+  const handleSkillClick = (index: number) => {
+    // 같은 item을 클릭한 경우 토글
+    if (clickedSkill === index) {
+      setClickedSkill(null);
+      setHoveredSkill(null);
+    } else {
+      setClickedSkill(index);
+      setHoveredSkill(null); // 클릭 시 hover 제거
+    }
+  };
+
   useEffect(() => {
+    // clickedSkill이 null이 아니거나 hoveredSkill이 null이 아닐 때 외부 클릭 감지
+    if (clickedSkill === null && hoveredSkill === null) return;
+
     const handleClickOutside = (event: MouseEvent) => {
-      if (clickedSkill !== null) {
-        const clickedElement = skillRefs.current[clickedSkill];
-        if (clickedElement && !clickedElement.contains(event.target as Node)) {
-          setClickedSkill(null);
-        }
+      const target = event.target as HTMLElement;
+
+      // skillGrid 내부의 어떤 item인지 확인
+      const clickedItem = target.closest(".skillGrid .item");
+      const clickedTooltip =
+        target.closest(".tooltip") || target.closest(".tooltipContent");
+
+      // tooltip 내부를 클릭한 경우는 닫지 않음
+      if (clickedTooltip) {
+        return;
       }
+
+      // item을 클릭한 경우
+      if (clickedItem) {
+        // 클릭된 item의 index 찾기
+        const clickedIndex = skillRefs.current.findIndex(
+          (ref) => ref && ref.contains(clickedItem as Node)
+        );
+
+        // 현재 열린 item을 클릭한 경우는 handleSkillClick에서 처리하므로 무시
+        if (clickedIndex === clickedSkill) {
+          return;
+        }
+
+        // 다른 item을 클릭한 경우 또는 hover만 있는 경우 닫기
+        setClickedSkill(null);
+        setHoveredSkill(null);
+        return;
+      }
+
+      // item이나 tooltip이 아닌 곳을 클릭한 경우 닫기
+      setClickedSkill(null);
+      setHoveredSkill(null);
     };
 
-    if (clickedSkill !== null) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
+    // 다음 이벤트 루프에서 실행하여 handleSkillClick이 먼저 처리되도록
+    const timeoutId = setTimeout(() => {
+      document.addEventListener("click", handleClickOutside);
+    }, 0);
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      clearTimeout(timeoutId);
+      document.removeEventListener("click", handleClickOutside);
     };
-  }, [clickedSkill]);
-
-  const handleSkillClick = (index: number) => {
-    setClickedSkill(clickedSkill === index ? null : index);
-  };
+  }, [clickedSkill, hoveredSkill]);
 
   return (
     <section id="skill" className="section sectionSkill">
@@ -109,8 +149,10 @@ const Skill: React.FC = () => {
                   <div className="name">{skill.name}</div>
                   {isActive && (
                     <div
+                      ref={(el) => {
+                        tooltipRefs.current[index] = el;
+                      }}
                       className="tooltip"
-                      onClick={(e) => e.stopPropagation()}
                     >
                       <div className="tooltipContent">
                         <p className="tooltipDescription">

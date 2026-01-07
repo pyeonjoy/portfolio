@@ -3,6 +3,21 @@
   border: 1px solid rgba(167, 171, 251, 0.2);
   border-radius: 16px;
   min-width: 500px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .careerItem {
+    padding: 1.5rem;
+    min-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .careerItem {
+    padding: 1rem;
+    min-width: 250px;
+  }
 }
 
 .app--dark .careerItem {
@@ -61,6 +76,20 @@
   margin-bottom: 0.5rem;
 }
 
+@media (max-width: 768px) {
+  .careerItemDescription {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 480px) {
+  .careerItemDescription {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
 .app--dark .careerItemDescription {
   color: #e0e0e0;
 }
@@ -91,4 +120,19 @@
 
 .app--dark .careerItemReason {
   color: #a0a0a0;
+}
+
+@media (max-width: 768px) {
+  .careerItemTitle {
+    font-size: 17px;
+  }
+  .careerItemPeriod {
+    font-size: 13px;
+  }
+  .careerItemDescription {
+    font-size: 13px;
+  }
+  .careerItemReason {
+    font-size: 13px;
+  }
 }

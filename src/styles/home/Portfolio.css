@@ -37,15 +37,6 @@
   color: white;
 }
 
-.tab:hover {
-  background: rgba(255, 255, 255, 0.4);
-  transform: translateY(-2px);
-}
-
-.app--dark .tab:hover {
-  background: rgba(255, 255, 255, 0.15);
-}
-
 .tabActive {
   background: rgba(167, 171, 251, 0.4);
   color: #1e1e22;

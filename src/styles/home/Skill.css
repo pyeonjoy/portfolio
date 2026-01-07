@@ -66,7 +66,11 @@
   margin-bottom: 0.2rem;
   color: #1e1e22;
 }
-
+@media (max-width: 768px) {
+  .name {
+    font-size: 13px;
+  }
+}
 .app--dark .name {
   color: white;
 }
@@ -136,4 +140,15 @@
     opacity: 1;
     transform: translateX(-10px) scale(1);
   }
+}
+
+.skillOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9998;
+  background: transparent;
+  cursor: pointer;
 }

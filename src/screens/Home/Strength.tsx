@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/section.scss";
+import "../../styles/section.css";
 import "../../styles/home/Strength.css";
 
 interface StrengthItem {

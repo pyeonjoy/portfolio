@@ -1,0 +1,96 @@
+/* Typography CSS Variables */
+:root {
+  /* Font Family */
+  --font-family-regular: "Gmarket Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-family-light: "Gmarket Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-family-medium: "Gmarket Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-family-bold: "Gmarket Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Colors */
+  --color-black: #1E1E22;
+  --color-grey: #727272;
+  --color-light-grey: #666666;
+  --color-white: white;
+  --color-background-grey: #F2F4F6;
+
+  /* Font Sizes */
+  --size-heading: 18px;
+  --size-subtitle: 16px;
+  --size-body: 14px;
+  --size-small: 13px;
+
+  /* Font Weights */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semi-bold: 600;
+  --weight-bold: 700;
+
+  /* Base Text Styles */
+  --base-letter-spacing: -0.02em;
+  --base-font-family: var(--font-family-regular);
+  --base-color: var(--color-black);
+
+  /* Text Style Combinations */
+  /* Heading */
+  --text-heading32-size: 32px;
+  --text-heading32-line-height: 44px;
+  --text-heading32-weight: 700;
+
+  --text-heading24-size: 24px;
+  --text-heading24-line-height: 32px;
+  --text-heading24-weight: 700;
+
+  --text-heading20-size: 20px;
+  --text-heading20-line-height: 28px;
+  --text-heading20-weight: 700;
+
+  --text-heading18-size: 18px;
+  --text-heading18-line-height: 26px;
+  --text-heading18-weight: 700;
+
+  /* SubTitle */
+  --text-subtitle16-size: 16px;
+  --text-subtitle16-line-height: 24px;
+  --text-subtitle16-weight: 600;
+
+  --text-subtitle14-size: 14px;
+  --text-subtitle14-line-height: 20px;
+  --text-subtitle14-weight: 700;
+
+  /* Label */
+  --text-label14-size: 14px;
+  --text-label14-line-height: 20px;
+  --text-label14-weight: 500;
+
+  --text-label13-size: 13px;
+  --text-label13-line-height: 18px;
+  --text-label13-weight: 500;
+
+  /* Body */
+  --text-body18-size: 18px;
+  --text-body18-line-height: 20px;
+  --text-body18-weight: 400;
+
+  --text-body16-size: 16px;
+  --text-body16-line-height: 24px;
+  --text-body16-weight: 600;
+
+  --text-body14-size: 14px;
+  --text-body14-line-height: 20px;
+  --text-body14-weight: 700;
+
+  --text-body13-size: 13px;
+  --text-body13-line-height: 18px;
+  --text-body13-weight: 400;
+
+  /* Caption */
+  --text-caption12-size: 12px;
+  --text-caption12-line-height: 18px;
+  --text-caption12-weight: 400;
+
+  /* Overline */
+  --text-overline10-size: 10px;
+  --text-overline10-line-height: 14px;
+  --text-overline10-weight: 600;
+}
+

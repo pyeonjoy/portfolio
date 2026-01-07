@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import CareerItem, {
   CareerItemProps,
 } from "../../components/CareerItem/CareerItem";
-import "../../styles/section.scss";
+import "../../styles/section.css";
 import "../../styles/home/Career.css";
 
 const Career: React.FC = () => {

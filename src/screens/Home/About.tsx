@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../styles/section.scss";
+import "../../styles/section.css";
 import "../../styles/home/About.css";
 
 interface FAQItem {

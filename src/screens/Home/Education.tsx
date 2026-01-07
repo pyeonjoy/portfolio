@@ -2,7 +2,7 @@ import React from "react";
 import EducationItem, {
   EducationItemProps,
 } from "../../components/EducationItem/EducationItem";
-import "../../styles/section.scss";
+import "../../styles/section.css";
 import "../../styles/home/Education.css";
 
 const Education: React.FC = () => {
@@ -22,7 +22,7 @@ const Education: React.FC = () => {
     {
       title: "코칭스터디 <Generation AI 2024>",
       period: "24.09 ~ 24.12",
-      description: "다양한 AI실습",
+      achievements: ["다양한 AI실습"],
     },
   ];
 
@@ -47,7 +47,7 @@ const Education: React.FC = () => {
     {
       title: "4차 산업 디지털 융합 이해",
       period: "23.09 ~ 23.10",
-      description: "다양한 AI 실습",
+      achievements: ["다양한 AI 실습"],
     },
   ];
 
@@ -58,7 +58,6 @@ const Education: React.FC = () => {
         <div className="sectionContent">
           <div className="educationGrid">
             <div className="educationSection">
-              <h3 className="educationTitle">교육 프로그램</h3>
               <div className="educationList">
                 {trainingPrograms.map((program, index) => (
                   <EducationItem key={index} {...program} />

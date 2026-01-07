@@ -21,7 +21,7 @@
 }
 @media (max-width: 768px) {
   .portfolioTroubleshootingTitle {
-    font-size: 20px;
+    font-size: 17px;
   }
 }
 
@@ -151,4 +151,15 @@
 
 .app--dark .portfolioCodeBlock code {
   color: #e0e0e0;
+}
+@media (max-width: 768px) {
+  .portfolioTroubleshootingText {
+    font-size: 13px;
+  }
+  .portfolioTroubleshootingItemWrapper {
+    margin-top: 0.5rem;
+  }
+  .portfolioTroubleshootingItemWrapper--spacing {
+    margin-bottom: 2rem;
+  }
 }

@@ -14,7 +14,7 @@
 }
 
 .educationSection {
-  padding: 2rem;
+  padding-top: 2rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -30,9 +30,23 @@
 }
 
 @media (max-width: 768px) {
-  .educationTitle {
-    font-size: 20px;
-    margin-bottom: 0.75rem;
+  .educationItemTitle {
+    font-size: 17px;
+  }
+  .educationItemPeriod {
+    font-size: 13px;
+  }
+  .educationItemCategory {
+    font-size: 13px;
+  }
+  .educationItemDescription {
+    font-size: 13px;
+  }
+  .educationItemAchievement {
+    font-size: 13px;
+  }
+  .educationItemTechnologies {
+    font-size: 13px;
   }
 }
 

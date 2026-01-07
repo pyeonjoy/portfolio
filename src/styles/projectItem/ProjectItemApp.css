@@ -9,6 +9,11 @@
   padding: 2rem;
   border-top: 1px solid rgba(167, 171, 251, 0.2);
 }
+@media (max-width: 768px) {
+  .portfolioMainTitle {
+    font-size: 17px;
+  }
+}
 
 .app--dark .portfolioMainTitle {
   color: white;
@@ -74,7 +79,6 @@
   }
 
   .portfolioImageContainer {
-    min-height: 500px;
+    min-height: 100px;
   }
 }
-

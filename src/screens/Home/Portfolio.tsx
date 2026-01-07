@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PortfolioCard from "../../components/ProjectCard/ProjectCard";
 import { webProjects, appProjects } from "../../data/projectsData";
-import "../../styles/section.scss";
+import "../../styles/section.css";
 import "../../styles/home/Portfolio.css";
 
 const Portfolio: React.FC = () => {

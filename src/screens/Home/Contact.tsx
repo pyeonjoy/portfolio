@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
-import "../../styles/section.scss";
+import "../../styles/section.css";
 import "../../styles/home/Contact.css";
 
 const Contact: React.FC = () => {

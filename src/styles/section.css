@@ -1,0 +1,82 @@
+.section {
+  min-height: 100vh;
+  padding: 8rem 2rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: visible;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 1rem 2rem 3rem;
+    min-height: auto;
+  }
+  #about {
+    padding-top: 10rem;
+  }
+}
+
+.section.sectionAbout,
+.section.sectionSkill,
+.section.sectionEducation,
+.section.sectionCareer,
+.section.sectionPortfolio,
+.section.sectionContact,
+.section.sectionStrength {
+  background: transparent;
+}
+
+.section .sectionContainer {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.section .sectionContainer.sectionContainerAbout {
+  max-width: 1400px;
+}
+
+.section .sectionTitle {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1e1e22;
+  margin-bottom: 3rem;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 768px) {
+  .section .sectionTitle {
+    margin-bottom: 2rem;
+    font-size: 24px;
+  }
+}
+
+.app--dark .section .sectionTitle {
+  color: white;
+}
+
+.section .sectionContent {
+  color: #1e1e22;
+  line-height: 1.8;
+  overflow: visible;
+}
+
+.app--dark .section .sectionContent {
+  color: #e0e0e0;
+}
+
+.section .sectionText {
+  font-size: 18px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .section .sectionText {
+    font-size: 16px;
+  }
+}

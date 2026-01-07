@@ -11,7 +11,7 @@ import Education from "./screens/Home/Education";
 import Career from "./screens/Home/Career";
 import Contact from "./screens/Home/Contact";
 import Back from "./screens/Home/Back";
-import "./App.scss";
+import "./App.css";
 
 const AppContent: React.FC = () => {
   const [currentSection, setCurrentSection] = useState("");

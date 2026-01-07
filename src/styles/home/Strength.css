@@ -19,6 +19,12 @@
   border-radius: 16px;
 }
 
+@media (max-width: 768px) {
+  .strengthGrid .item {
+    padding: 1rem;
+  }
+}
+
 .app--dark .strengthGrid .item {
   background: rgba(255, 255, 255, 0.05);
 }
@@ -33,7 +39,7 @@
 
 @media (max-width: 768px) {
   .strengthGrid .title {
-    font-size: 20px;
+    font-size: 17px;
     margin-bottom: 0.75rem;
   }
 }
@@ -51,7 +57,7 @@
 
 @media (max-width: 768px) {
   .strengthGrid .description {
-    font-size: 16px;
+    font-size: 13px;
     line-height: 1.6;
   }
 }

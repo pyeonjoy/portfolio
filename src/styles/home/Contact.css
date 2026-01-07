@@ -7,12 +7,30 @@
   background: rgba(167, 171, 251, 0.2);
   border-radius: 16px;
   padding: 4rem;
+  box-sizing: border-box;
 }
 
 @media (max-width: 968px) {
   .contactLayout {
     grid-template-columns: 1fr;
     gap: 3rem;
+    padding: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contactLayout {
+    gap: 2rem;
+    padding: 2rem;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactLayout {
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 8px;
   }
 }
 
@@ -20,6 +38,18 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .contactInfo {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactInfo {
+    gap: 1rem;
+  }
 }
 
 .contactSubtitle {
@@ -33,7 +63,7 @@
 
 @media (max-width: 768px) {
   .contactSubtitle {
-    font-size: 20px;
+    font-size: 17px;
     margin-bottom: 0.75rem;
   }
 }
@@ -54,6 +84,18 @@
   text-align: center;
 }
 
+@media (max-width: 768px) {
+  .contactInfoItem {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactInfoItem {
+    padding: 0.75rem;
+  }
+}
+
 .app--dark .contactInfoItem {
   background: rgba(255, 255, 255, 0.1);
 }
@@ -72,6 +114,19 @@
   color: #1e1e22;
   text-decoration: none;
   transition: color 0.3s ease;
+  word-break: break-all;
+}
+
+@media (max-width: 768px) {
+  .contactInfoValue {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactInfoValue {
+    font-size: 14px;
+  }
 }
 
 .app--dark .contactInfoValue {
@@ -93,6 +148,18 @@
   gap: 1.5rem;
 }
 
+@media (max-width: 768px) {
+  .contactForm {
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactForm {
+    gap: 1rem;
+  }
+}
+
 .contactFormGroup {
   display: flex;
   flex-direction: column;
@@ -105,6 +172,12 @@
   color: #1e1e22;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+@media (max-width: 768px) {
+  .contactFormLabel {
+    font-size: 13px;
+    text-align: center;
+  }
 }
 
 .app--dark .contactFormLabel {
@@ -123,6 +196,24 @@
   color: #1e1e22;
   transition: all 0.3s ease;
   resize: vertical;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .contactFormInput,
+  .contactFormTextarea {
+    padding: 0.875rem;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactFormInput,
+  .contactFormTextarea {
+    padding: 0.75rem;
+    font-size: 14px;
+  }
 }
 
 .app--dark .contactFormInput,
@@ -159,6 +250,18 @@
   min-height: 150px;
 }
 
+@media (max-width: 768px) {
+  .contactFormTextarea {
+    min-height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactFormTextarea {
+    min-height: 100px;
+  }
+}
+
 .contactFormButton {
   padding: 1rem 2rem;
   background: white;
@@ -170,6 +273,22 @@
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .contactFormButton {
+    padding: 0.875rem 1.5rem;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactFormButton {
+    padding: 0.75rem 1rem;
+    font-size: 15px;
+  }
 }
 
 .contactFormButton:hover {

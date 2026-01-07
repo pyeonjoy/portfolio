@@ -158,7 +158,19 @@
   line-height: 1.8;
   color: #1e1e22;
 }
-
+@media (max-width: 768px) {
+  .faqAnswer p {
+    font-size: 13px;
+  }
+}
 .app--dark .faqAnswer p {
   color: #e0e0e0;
+}
+@media (max-width: 768px) {
+  .info {
+    padding: 0rem;
+  }
+  .infoValue {
+    font-size: 13px;
+  }
 }
