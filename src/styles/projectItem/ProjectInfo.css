@@ -111,7 +111,7 @@
 
 /* Project01 (CampYou) 색상 오버라이드 */
 .portfolioItemContent--campyou {
-  --color-primary: var(--color-campyou-dark);
+  --color-primary: var(--color-noovie-primary);
   --color-primary-light: var(--color-campyou-light);
 }
 

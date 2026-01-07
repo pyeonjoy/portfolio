@@ -42,7 +42,7 @@
     width: 100%;
     max-width: 100%;
     font-size: 2.5em;
-    transform: translate(-50%, -400%);
+    transform: translate(-50%, -600%);
   }
 }
 
@@ -82,10 +82,26 @@
     width: 80vw;
     max-width: 80vw;
     font-size: 30px;
-    transform: translate(-50%, -750%);
+    transform: translate(-50%, -1000%);
   }
 }
 
 .app--dark .hero .heroTitle {
   color: white;
+}
+@media (max-width: 480px) {
+  .hero .heroTitle {
+    font-size: 20px;
+    transform: translate(-50%, -800%);
+  }
+  .hero .heroBackground {
+    font-size: 1.5em;
+    transform: translate(-50%, -450%);
+  }
+  .heroImage {
+    max-width: 300px;
+    object-fit: cover;
+    position: absolute;
+    bottom: 50px;
+  }
 }

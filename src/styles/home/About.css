@@ -168,7 +168,7 @@
 }
 @media (max-width: 768px) {
   .info {
-    padding: 0rem;
+    padding: 0rem !important;
   }
   .infoValue {
     font-size: 13px;
