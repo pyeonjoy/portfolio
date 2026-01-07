@@ -18,7 +18,6 @@ const Navigation: React.FC<NavigationProps> = ({
   isScrolled,
 }) => {
   const sections = ['About', 'Portfolio', 'Skill', 'Strength', 'Education', 'Career', 'Contact'];
-  const [showPortfolioSubmenu, setShowPortfolioSubmenu] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -42,22 +41,18 @@ const Navigation: React.FC<NavigationProps> = ({
   }, [isMobileMenuOpen]);
 
   const handleSectionClick = (section: string) => {
-    if (section === 'Portfolio' && window.innerWidth <= 768) {
-      setShowPortfolioSubmenu(!showPortfolioSubmenu);
-    } else {
-      // 포트폴리오인 경우 메인 페이지로 이동
-      if (section === 'Portfolio') {
-        if (location.pathname !== '/') {
-          navigate('/');
-        }
-        setTimeout(() => {
-          onSectionChange(section);
-        }, 100);
-      } else {
-        onSectionChange(section);
+    // 포트폴리오인 경우 메인 페이지로 이동
+    if (section === 'Portfolio') {
+      if (location.pathname !== '/') {
+        navigate('/');
       }
-      setIsMobileMenuOpen(false);
+      setTimeout(() => {
+        onSectionChange(section);
+      }, 100);
+    } else {
+      onSectionChange(section);
     }
+    setIsMobileMenuOpen(false);
   };
 
   const isVisible = true; // 항상 네비게이션 표시
@@ -87,11 +82,7 @@ const Navigation: React.FC<NavigationProps> = ({
           {sections.map((section) => (
             <div
               key={section}
-              className={`navigationTabWrapper ${
-                section === 'Portfolio' ? 'navigationTabWrapperPortfolio' : ''
-              }`}
-              onMouseEnter={() => section === 'Portfolio' && setShowPortfolioSubmenu(true)}
-              onMouseLeave={() => section === 'Portfolio' && setShowPortfolioSubmenu(false)}
+              className="navigationTabWrapper"
             >
               <button
                 className={`navigationTab ${
@@ -101,32 +92,6 @@ const Navigation: React.FC<NavigationProps> = ({
               >
                 {section}
               </button>
-              {section === 'Portfolio' && showPortfolioSubmenu && (
-                <div 
-                  className="navigationSubmenu"
-                  onMouseEnter={() => setShowPortfolioSubmenu(true)}
-                  onMouseLeave={() => setShowPortfolioSubmenu(false)}
-                >
-                  <button
-                    className="navigationSubmenuItem"
-                    onClick={() => {
-                      handleSectionClick('Portfolio');
-                      setShowPortfolioSubmenu(false);
-                    }}
-                  >
-                    웹 포트폴리오
-                  </button>
-                  <button
-                    className="navigationSubmenuItem"
-                    onClick={() => {
-                      handleSectionClick('Portfolio');
-                      setShowPortfolioSubmenu(false);
-                    }}
-                  >
-                    앱 포트폴리오
-                  </button>
-                </div>
-              )}
             </div>
           ))}
           <label className="navigationThemeSwitch">
