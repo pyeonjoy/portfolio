@@ -9,34 +9,26 @@ const Career: React.FC = () => {
   const careers: CareerItemProps[] = [
     {
       title: "(주) APST",
-      period: "25.01 ~ 25.03",
-      description:
-        "현대오일뱅크 FMS Service 리팩토링, nosql 대용량 시계열 데이터 처리",
-      reason: "계약 종료",
-    },
-    {
-      title: "(주) APST",
-      period: "25.01 ~ 25.03",
+      period: "25.01 ~ 25.03 (3개월)",
       description:
         "현대오일뱅크 FMS Service 리팩토링, nosql 대용량 시계열 데이터 처리",
       reason: "계약 종료",
     },
     {
       title: "(주) 코어다이브",
-      period: "21.08 ~ 23.07",
+      period: "21.08 ~ 23.07 (2년)",
       description: "지마켓 기획전 페이지 및 웹 배너 제작",
       reason: "폐업",
     },
     {
       title: "(주) 위메프",
-      period: "16.07 ~ 16.09",
+      period: "16.07 ~ 16.09 (3개월)",
       description: "위메프 기획전 페이지 및 웹 배너 제작",
       reason: "계약 종료",
     },
     {
       title: "더플랜 컴퓨터 아트 학원",
-      period: "16.09 ~ 17.01",
-      position: "강사",
+      period: "16.09 ~ 17.01 (3개월)",
       description: "포토샵, 인디자인 강사",
       reason: "계약 종료",
     },

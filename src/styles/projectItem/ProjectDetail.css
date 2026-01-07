@@ -1,0 +1,141 @@
+@import "../common/colors.css";
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 2rem;
+  background: var(--color-white-light);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.app--dark .backButton {
+  border: 1px solid var(--color-white-light);
+  background: transparent;
+  color: var(--color-white);
+}
+
+.backButton:hover {
+  background: var(--color-primary-light);
+  transform: translateX(-5px);
+}
+
+.app--dark .backButton:hover {
+  background: var(--color-primary-light);
+}
+
+/* Project01 (CampYou) 전용 스타일 */
+.backButton--project01 {
+  background: var(--color-campyou-light);
+  color: var(--color-text);
+}
+
+.app--dark .backButton--project01 {
+  border: 1px solid var(--color-noovie-primary);
+  color: var(--color-noovie-primary);
+}
+
+.backButton--project01:hover {
+  background: var(--color-campyou-dark);
+  color: var(--color-white);
+  transform: translateX(-5px);
+}
+
+.app--dark .backButton--project01:hover {
+  background: var(--color-noovie-primary);
+}
+
+/* Project02 전용 스타일 */
+.backButton--project02 {
+  background: var(--color-primary-light);
+  color: var(--color-text);
+}
+
+.app--dark .backButton--project02 {
+  border: 1px solid var(--color-primary-light);
+  background: transparent;
+  color: var(--color-primary-light);
+}
+
+.backButton--project02:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+  transform: translateX(-5px);
+}
+
+.app--dark .backButton--project02:hover {
+  background: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  color: var(--color-white);
+}
+
+/* Project03 (Noovie) 전용 스타일 */
+.backButton--project03 {
+  background: var(--color-noovie-primary-light);
+  color: var(--color-white);
+}
+
+.app--dark .backButton--project03 {
+  background: var(--color-noovie-primary-light);
+  color: var(--color-white);
+}
+
+.backButton--project03:hover {
+  background: var(--color-noovie-primary);
+  transform: translateX(-5px);
+}
+
+.app--dark .backButton--project03:hover {
+  background: var(--color-noovie-primary);
+}
+
+/* Project04 (Okeydoggy) 전용 스타일 */
+.backButton--project04 {
+  background: var(--color-okeydoggy-primary);
+  color: var(--color-white);
+}
+
+.app--dark .backButton--project04 {
+  border: 1px solid var(--color-okeydoggy-primary);
+  background: transparent;
+  color: var(--color-okeydoggy-primary);
+}
+
+.backButton--project04:hover {
+  background: var(--color-primary-light);
+  color: var(--color-text);
+  transform: translateX(-5px);
+}
+
+.app--dark .backButton--project04:hover {
+  background: var(--color-okeydoggy-primary);
+}
+
+.content {
+  margin-top: 2rem;
+}
+
+.notFound {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.notFound h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 2rem;
+}
+
+.app--dark .notFound h2 {
+  color: var(--color-white);
+}

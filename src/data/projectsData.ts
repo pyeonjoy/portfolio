@@ -1,41 +1,120 @@
-import { Project } from "../components/PortfolioItem/PortfolioItem";
+import { Project } from "../components/ProjectItem/types";
 
 export const webProjects: Project[] = [
   {
     id: "Project01",
-    name: "Perfume",
-    period: "3주",
-    teamSize: "5명",
-    contribution: "40%",
+    name: "CampYou_fullstack",
+    period: "5주",
+    teamSize: "4명",
+    contribution: "30%",
     description:
-      "어쩌구어쩌구어쩌구어쩌구어쩌구 어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구 어쩌구어쩌구어쩌구어쩌구어쩌구 어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌 어쩌구어쩌구설명넣어줘",
-    technologies: ["React", "TypeScript", "Node.js", "Express", "MongoDB"],
+      "캠핑장을 알아보고, 정보를 얻고, 동행까지 한번에 해결할수있는 새로운 경험을 제공하는 서비스",
+    technologies: [
+      "Spring MVC",
+      "MyBatis",
+      "JSP",
+      "Spring Security",
+      "소셜 로그인",
+    ],
+    contributionDetails: [
+      "스크롤 위치에 따른 카테고리 애니메이션 제작, 메인 이미지 바로가기 슬라이드쇼",
+      "다른 사용자가 평점을 남길 때마다 합산하여 평균치 출력",
+      "신고시에 신고 대상자, 당사자, 신고 상세정보 전달",
+      "캠핑관련된 팝업창 쿠키를 활용해 24시간동안 보지 않기",
+      "유저 정보및 정지상태, 신고 처리",
+      "신고 상세내용과 날짜별 정지 처리",
+      "유저 현황과 커뮤니티 현황 문의내역 통계 및 시각화",
+      "팝업창 이미지 관리 및 생성, 삭제",
+    ],
+    troubleshooting: {
+      title: "트러블 슈팅",
+      items: [
+        {
+          type: "problem",
+          text: "스크롤 이벤트시 세로로 긴 이미지를 첨부했을때 시작점이 이미지 하단으로 잡혀 스크롤이 다 끝난 뒤 늦게 이미지가 출력되는 오류",
+        },
+        {
+          type: "solution",
+          text: "스크롤 이벤트시 이벤트 시작부분을과 이벤트 진행 방향을 아래에서 위가 아닌 옆으로 설정하여 해결했습니다.",
+        },
+        {
+          type: "learning",
+          text: "자바스크립트 작업시 x와 y의 개념과 ms초에 따른 다양한 연출효과를 명확히 알게되었습니다.",
+        },
+        {
+          type: "problem",
+          text: "지도 클러스터링시 너무 많은 캠핑장이 마커로 찍혀 로딩 시간이 너무 길어지는 문제가 발생",
+        },
+        {
+          type: "solution",
+          text: "지도에 보이는 마커만 찍히게 하고, 시작시 지도를 축소해서 클러스터링이 크게 된 상태로 화면을 출력했습니다.",
+        },
+        {
+          type: "learning",
+          text: "지도 API이용시 현재 화면에 보이는 마커만 출력하는법과 초기세팅의 중요성을 알게되었습니다.",
+        },
+        {
+          type: "problem",
+          text: "사용자 신고시에 로그인한 사용자의 정보와 신고대상자의 정보를 함께 가져와야하는 문제 발생",
+        },
+        {
+          type: "solution",
+          text: "신고자의 정보를 세션에서 가져오고, 신고 대상자의 정보를 게시글에서 가져와 해결했습니다.",
+        },
+        {
+          type: "learning",
+          text: "같은 테이블의 같은 정보라도 다른 테이블에 외래키로 두개이상 묶어서 다양하게 활용할 수 있게 되었습니다.",
+        },
+        {
+          type: "problem",
+          text: "사용자 신고처리시 날짜를 지정해서 정지를 하고, 언제 어떻게 풀어주어야하는지 문제 발생",
+        },
+        {
+          type: "solution",
+          text: "테이블에 없는 DAY CLASS를 VO에 만들어 MAPPER에서 활용하고, 로그인 요청시 날짜가 지나면 MAPPER 업데이트",
+        },
+        {
+          type: "learning",
+          text: "테이블에 존재하지 않더라도 VO를 다양하게 활용하고, 사용자 정보를 언제 적절히 업데이트해야하는지 알게되었습니다.",
+        },
+        {
+          type: "problem",
+          text: "사용자 별점 평가시 기존에 있던 총 평가 값에 새로운 값을 구해 평균을 출력해야하는 문제 발생",
+        },
+        {
+          type: "solution",
+          text: "사용자 화면에 출력되는 평균 컬럼 외에 총합과 평가한 인원을 더해주고 트렌젝션을 사용하여순차적으로 평균값 계산 MAPPER 업데이트",
+        },
+        {
+          type: "learning",
+          text: "결과값이 필요한경우에는 계산을 위한 따른 컬럼이 필요하고 이를 순차적으로 진행하기위해서는 트랜젝션이 필요한것을 배웠습니다.",
+        },
+      ],
+    },
   },
   {
     id: "Project02",
-    name: "CampYou",
-    period: "4주",
-    teamSize: "5명",
-    contribution: "50%",
-    description:
-      "어쩌구어쩌구어쩌구어쩌구어쩌구 어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구 어쩌구어쩌구어쩌구어쩌구어쩌구 어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌 어쩌구어쩌구설명넣어줘",
-    technologies: ["Vue.js", "JavaScript", "Spring Boot", "MySQL", "AWS"],
-  },
-  {
-    id: "Project03",
-    name: "Interviewdot",
+    name: "Interviewdot_fullstack",
     period: "5주",
     teamSize: "5명",
     contribution: "40%",
     description:
       "AI면접 연습 시스템을 통해 지원자들이 실제 면접에 대한 자신감을 키우고, 키워드 입력만으로 효과적인 자기소개서를 준비할 수 있는 면접 커뮤니티 사이트",
     technologies: [
+      "Next.js",
       "React",
-      "TypeScript",
-      "Spring Boot",
-      "MySQL",
-      "JWT",
+      "MobX ",
+      "MUI",
+      "Toss Payments 결제",
       "OpenAI API",
+    ],
+    contributionDetails: [
+      "관리자 로그인 구현 및 BCYpasswordEncoder 사용한 비밀번호 암호화",
+      "OPEN AI를 사용한 자기소개서 수정 기능 구현",
+      "채용공고 API 연동을 통한 채용공고 조회 및 채용공고 즐겨찾기 기능 구현",
+      "풀캘린더를 이용해 일정관리 및 채용공고 동기화",
+      "1:1문의 게시판 및 신고기능, STMP를 활용한 메일 구현",
+      "면접 후기 게시판 및 댓글, 좋아요 등의 커뮤니티 기능 개발",
     ],
     troubleshooting: {
       title: "트러블 슈팅",
@@ -306,30 +385,43 @@ public void sendSimpleMessage(InquiryVO inquiryVO) {
 
 export const appProjects: Project[] = [
   {
-    id: "Project04",
-    name: "TrendOnAir",
-    period: "6주",
-    teamSize: "5명",
-    contribution: "45%",
+    id: "Project03",
+    name: "TrendOnAir_frontend",
+    period: "1주",
+    teamSize: "1명",
+    contribution: "100%",
     description:
-      "어쩌구어쩌구어쩌구어쩌구어쩌구 어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구 어쩌구어쩌구어쩌구어쩌구어쩌구 어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌 어쩌구어쩌구설명넣어줘",
+      "영화관과 OTT 플랫폼에서 가장 인기 있는 콘텐츠와 트렌드를 모아 보여주는 서비스입니다.",
     technologies: [
       "React Native",
+      "Expo",
       "TypeScript",
-      "Node.js",
-      "Firebase",
-      "Redux",
+      "React Query",
+      "styled-components",
+    ],
+    contributionDetails: [
+      "실시간 영화 트렌드 조회 : 현재 인기 있는 영화 TOP 20 실시간 업데이트",
+      "실시간 TV 트렌드 조회 : 지금 화제인 TV 프로그램 실시간 랭킹",
+      "커밍순 영화/TV 정보 제공 : 곧 개봉 또는 공개 예정인 콘텐츠를 카테고리별로 정리",
+      "트렌드 피드 뷰 제공 : 영화 & TV 트렌드를 한 번에 볼 수 있는 통합 피드",
+      "상세 콘텐츠 페이지 : 줄거리, 출연진, 예고편, OTT 제공 여부까지 한눈에 확인",
     ],
   },
   {
-    id: "Project05",
-    name: "Okeydoggy",
-    period: "4주",
+    id: "Project04",
+    name: "Okeydoggy_frontend",
+    period: "8주",
     teamSize: "5명",
-    contribution: "55%",
+    contribution: "100%",
     description:
-      "어쩌구어쩌구어쩌구어쩌구어쩌구 어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구 어쩌구어쩌구어쩌구어쩌구어쩌구 어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌 어쩌구어쩌구설명넣어줘",
-    technologies: ["Flutter", "Dart", "Spring Boot", "PostgreSQL", "Kakao API"],
+      "강아지 훈련이 필요한 보호자와 전문 트레이너를 연결해주는 반려견 맞춤형 훈련사 매칭 시스템입니다.",
+    technologies: [
+      "React Native",
+      "TypeScript",
+      "React Query",
+      "React Navigation",
+      "소셜 로그인",
+    ],
   },
 ];
 

@@ -1,7 +1,6 @@
 .careerItem {
   padding: 2rem;
   border: 1px solid rgba(167, 171, 251, 0.2);
-  backdrop-filter: blur(10px);
   border-radius: 16px;
   min-width: 500px;
 }

@@ -1,0 +1,19 @@
+:root {
+  /* 범용 색상 변수 (한 번만 선언) */
+  --color-primary-light: rgba(167, 171, 251, 0.8);
+  --color-primary: #1400ff;
+  --color-campyou-light: #d1eed3;
+  --color-campyou-dark: #053610;
+  --color-noovie-primary: #ffa700;
+  --color-noovie-primary-light: #1e272e;
+  --color-okeydoggy-primary: #6f71f8;
+
+  /* 공통 색상 (한 번만 선언) */
+  --color-white: white;
+  --color-white-light: rgba(255, 255, 255, 0.3);
+  --color-dark-bg: rgba(30, 30, 34, 0.8);
+  --color-dark-background: #1e1e22;
+  --color-text: #1e1e22;
+  --color-text-light: #e0e0e0;
+  --color-border: #e0e0e0;
+}

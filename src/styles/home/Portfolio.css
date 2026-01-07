@@ -17,7 +17,6 @@
   padding: 1rem 2rem;
   border: none;
   background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
   border-radius: 12px;
   font-size: 18px;
   font-weight: 600;
@@ -60,10 +59,11 @@
 
 .portfolioGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
-  width: 100%;
+  max-width: 800px;
   margin: 0 auto;
+  justify-content: center;
 }
 
 @media (max-width: 1400px) {

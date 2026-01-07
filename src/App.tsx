@@ -3,13 +3,14 @@ import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation";
 import Hero from "./screens/Home/Hero";
 import About from "./screens/Home/About";
-import Portfolio from "./screens/Portfolio/Portfolio";
-import ProjectDetail from "./screens/Portfolio/ProjectDetail";
+import Portfolio from "./screens/Home/Portfolio";
+import ProjectDetail from "./screens/ProjectDetail";
 import Skill from "./screens/Home/Skill";
 import Strength from "./screens/Home/Strength";
 import Education from "./screens/Home/Education";
 import Career from "./screens/Home/Career";
 import Contact from "./screens/Home/Contact";
+import Back from "./screens/Home/Back";
 import "./App.scss";
 
 const AppContent: React.FC = () => {
@@ -169,6 +170,7 @@ const AppContent: React.FC = () => {
 
   return (
     <div className="app">
+      {isDarkMode && <Back />}
       <Navigation
         currentSection={currentSection}
         onSectionChange={handleSectionChange}

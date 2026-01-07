@@ -1,0 +1,44 @@
+/* PortfolioItem Main Styles */
+
+.portfolioMainTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e1e22;
+  text-align: center;
+  margin-top: 2rem;
+  padding: 2rem;
+  border-top: 1px solid rgba(167, 171, 251, 0.2);
+}
+
+.app--dark .portfolioMainTitle {
+  color: white;
+}
+
+.portfolioImageContainer {
+  width: 100%;
+  max-width: 100%;
+  min-height: 600px;
+  overflow: visible;
+}
+
+/* Project01 (CampYou) 전용 - 세로 100% 표시를 위한 높이 제한 제거 */
+.portfolioItemContent--campyou .portfolioImageContainer {
+  min-height: auto;
+  height: auto;
+}
+
+.portfolioImageContainer--fullwidth {
+  overflow: visible;
+  padding-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .portfolioImageContainer {
+    min-height: 500px;
+  }
+}
+
+/* Interviewdot (Project02) 전용 스타일 */
+.portfolioItemContent--interviewdot {
+  background-color: white;
+}

@@ -79,7 +79,6 @@
 
 .faqItem {
   background: rgba(167, 171, 251, 0.1);
-  backdrop-filter: blur(10px);
   border-radius: 12px;
   overflow: hidden;
   transition: all 0.3s ease;

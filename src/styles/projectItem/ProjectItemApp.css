@@ -1,0 +1,80 @@
+/* PortfolioItem App Styles */
+
+.portfolioMainTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e1e22;
+  text-align: center;
+  margin-top: 2rem;
+  padding: 2rem;
+  border-top: 1px solid rgba(167, 171, 251, 0.2);
+}
+
+.app--dark .portfolioMainTitle {
+  color: white;
+}
+
+/* 앱 레이아웃: 왼쪽 이미지, 오른쪽 정보 */
+.portfolioContentApp {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+/* 왼쪽: 앱 이미지 컨테이너 */
+.portfolioImageContainerApp {
+  flex: 0 0 450px; /* 고정 너비, 앱 크기 */
+  max-width: 450px;
+  min-height: 800px;
+  overflow: visible;
+}
+
+.portfolioImageContainerApp .portfolioSwiperImage {
+  width: 100%;
+  height: auto;
+  max-height: 800px;
+  object-fit: contain;
+}
+
+/* 오른쪽: 프로젝트 정보 */
+.portfolioInfoContainerApp {
+  flex: 1;
+  min-width: 0;
+}
+
+.portfolioImageContainer {
+  width: 100%;
+  max-width: 100%;
+  min-height: 600px;
+  overflow: visible;
+}
+
+.portfolioImageContainer--fullwidth {
+  overflow: visible;
+  padding-bottom: 1rem;
+}
+
+.portfolioImageContainer--original {
+  width: 100%;
+  max-width: 100%;
+  overflow: visible;
+}
+
+@media (max-width: 768px) {
+  .portfolioContentApp {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .portfolioImageContainerApp {
+    flex: 1 1 100%;
+    max-width: 100%;
+    min-height: 400px;
+  }
+
+  .portfolioImageContainer {
+    min-height: 500px;
+  }
+}
+

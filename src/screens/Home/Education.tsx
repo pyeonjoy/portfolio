@@ -17,6 +17,7 @@ const Education: React.FC = () => {
         "SW인재상 수혜",
         "봉사상 수혜",
       ],
+      technologies: ["JAVA", "REACT", "NEXT.JS", "MyBatis ..."],
     },
     {
       title: "코칭스터디 <Generation AI 2024>",
@@ -31,6 +32,7 @@ const Education: React.FC = () => {
       period: "15.03 ~ 20.03",
       description: "학사졸업(3.5/4.5)",
       achievements: ["성적장학금 2회 수혜", "근로장학금 2회 수혜"],
+      technologies: ["HTML", "CSS", "JavaScript", "jQuery"],
     },
     {
       title: "웹표준 디자인 제작",
