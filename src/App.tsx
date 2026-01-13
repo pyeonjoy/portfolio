@@ -18,6 +18,7 @@ const AppContent: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const sectionsRef = useRef<{ [key: string]: HTMLElement | null }>({});
+  const isScrollingRef = useRef(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -79,12 +80,17 @@ const AppContent: React.FC = () => {
 
     // 스크롤 이벤트 리스너
     const handleScroll = () => {
+      // 프로그래밍 방식 스크롤 중에는 섹션 감지 비활성화
+      if (isScrollingRef.current) {
+        return;
+      }
+
       const scrollPosition = window.scrollY + window.innerHeight / 3;
       const sections = [
         "About",
         "Portfolio",
-        "Career",
         "Skill",
+        "Career",
         "Strength",
         "Education",
         "Contact",
@@ -125,41 +131,42 @@ const AppContent: React.FC = () => {
   }, [location.pathname]);
 
   const handleSectionChange = (section: string) => {
+    // 스크롤 시작 전에 섹션을 먼저 설정하고 스크롤 감지 비활성화
+    setCurrentSection(section);
+    isScrollingRef.current = true;
+
+    const scrollToSection = () => {
+      const element = sectionsRef.current[section.toLowerCase()];
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        // 스크롤 애니메이션 완료 후 스크롤 감지 재활성화 (약 1초 후)
+        setTimeout(() => {
+          isScrollingRef.current = false;
+        }, 1000);
+      } else {
+        isScrollingRef.current = false;
+      }
+    };
+
     // 포트폴리오인 경우 메인 페이지로 이동
     if (section === "Portfolio") {
       if (location.pathname !== "/") {
         navigate("/");
         setTimeout(() => {
-          const element = sectionsRef.current[section.toLowerCase()];
-          if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
-            setCurrentSection(section);
-          }
+          scrollToSection();
         }, 100);
       } else {
-        const element = sectionsRef.current[section.toLowerCase()];
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-          setCurrentSection(section);
-        }
+        scrollToSection();
       }
     } else {
       // 메인 페이지가 아니면 먼저 이동
       if (location.pathname !== "/") {
         navigate("/");
         setTimeout(() => {
-          const element = sectionsRef.current[section.toLowerCase()];
-          if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
-            setCurrentSection(section);
-          }
+          scrollToSection();
         }, 100);
       } else {
-        const element = sectionsRef.current[section.toLowerCase()];
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-          setCurrentSection(section);
-        }
+        scrollToSection();
       }
     }
   };

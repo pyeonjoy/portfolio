@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import './Navigation.css';
+import React, { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import "./Navigation.css";
 
 interface NavigationProps {
   currentSection: string;
@@ -17,48 +17,97 @@ const Navigation: React.FC<NavigationProps> = ({
   onToggleDarkMode,
   isScrolled,
 }) => {
-  const sections = ['About', 'Portfolio', 'Skill', 'Strength', 'Education', 'Career', 'Contact'];
+  const sections = [
+    "About",
+    "Portfolio",
+    "Skill",
+    "Career",
+    "Strength",
+    "Education",
+    "Contact",
+  ];
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const scrollPositionRef = React.useRef(0);
 
   // 모바일 메뉴 열릴 때 body 스크롤 막기
   React.useEffect(() => {
     if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-      document.body.style.position = 'fixed';
-      document.body.style.width = '100%';
+      // 현재 스크롤 위치 저장
+      scrollPositionRef.current = window.scrollY;
+      // body에 fixed 적용하면서 스크롤 위치 유지
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollPositionRef.current}px`;
+      document.body.style.width = "100%";
     } else {
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.width = '';
+      // body 스타일 복원
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      // 저장된 스크롤 위치로 복원
+      window.scrollTo(0, scrollPositionRef.current);
     }
     return () => {
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.width = '';
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
     };
   }, [isMobileMenuOpen]);
 
   const handleSectionClick = (section: string) => {
-    // 포트폴리오인 경우 메인 페이지로 이동
-    if (section === 'Portfolio') {
-      if (location.pathname !== '/') {
-        navigate('/');
-      }
+    // 모바일 메뉴가 열려있으면 먼저 닫고 body 스타일 복원
+    if (isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+      // body 스타일 복원
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+
+      // body 스타일 복원 후 스크롤 실행을 위해 약간의 지연
       setTimeout(() => {
-        onSectionChange(section);
+        // 포트폴리오인 경우 메인 페이지로 이동
+        if (section === "Portfolio") {
+          if (location.pathname !== "/") {
+            navigate("/");
+            setTimeout(() => {
+              onSectionChange(section);
+            }, 100);
+          } else {
+            onSectionChange(section);
+          }
+        } else {
+          onSectionChange(section);
+        }
       }, 100);
     } else {
-      onSectionChange(section);
+      // 포트폴리오인 경우 메인 페이지로 이동
+      if (section === "Portfolio") {
+        if (location.pathname !== "/") {
+          navigate("/");
+          setTimeout(() => {
+            onSectionChange(section);
+          }, 100);
+        } else {
+          onSectionChange(section);
+        }
+      } else {
+        onSectionChange(section);
+      }
     }
-    setIsMobileMenuOpen(false);
   };
 
   const isVisible = true; // 항상 네비게이션 표시
-  
+
   return (
-    <nav className={`navigation ${isScrolled ? 'navigationScrolled' : ''} ${isVisible ? 'navigationVisible' : ''}`}>
+    <nav
+      className={`navigation ${isScrolled ? "navigationScrolled" : ""} ${
+        isVisible ? "navigationVisible" : ""
+      }`}
+    >
       {isMobileMenuOpen && (
         <div
           className="navigationOverlay"
@@ -74,19 +123,32 @@ const Navigation: React.FC<NavigationProps> = ({
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="메뉴 토글"
         >
-          <span className={`navigationHamburgerLine ${isMobileMenuOpen ? 'navigationHamburgerLineOpen' : ''}`}></span>
-          <span className={`navigationHamburgerLine ${isMobileMenuOpen ? 'navigationHamburgerLineOpen' : ''}`}></span>
-          <span className={`navigationHamburgerLine ${isMobileMenuOpen ? 'navigationHamburgerLineOpen' : ''}`}></span>
+          <span
+            className={`navigationHamburgerLine ${
+              isMobileMenuOpen ? "navigationHamburgerLineOpen" : ""
+            }`}
+          ></span>
+          <span
+            className={`navigationHamburgerLine ${
+              isMobileMenuOpen ? "navigationHamburgerLineOpen" : ""
+            }`}
+          ></span>
+          <span
+            className={`navigationHamburgerLine ${
+              isMobileMenuOpen ? "navigationHamburgerLineOpen" : ""
+            }`}
+          ></span>
         </button>
-        <div className={`navigationTabs ${isMobileMenuOpen ? 'navigationTabsOpen' : ''}`}>
+        <div
+          className={`navigationTabs ${
+            isMobileMenuOpen ? "navigationTabsOpen" : ""
+          }`}
+        >
           {sections.map((section) => (
-            <div
-              key={section}
-              className="navigationTabWrapper"
-            >
+            <div key={section} className="navigationTabWrapper">
               <button
                 className={`navigationTab ${
-                  currentSection === section ? 'navigationTabActive' : ''
+                  currentSection === section ? "navigationTabActive" : ""
                 }`}
                 onClick={() => handleSectionClick(section)}
               >
@@ -101,9 +163,13 @@ const Navigation: React.FC<NavigationProps> = ({
               onChange={onToggleDarkMode}
               aria-label="다크모드 토글"
             />
-            <span className={`navigationThemeSlider ${isDarkMode ? 'navigationThemeSliderDark' : ''}`}>
+            <span
+              className={`navigationThemeSlider ${
+                isDarkMode ? "navigationThemeSliderDark" : ""
+              }`}
+            >
               <span className="navigationThemeIcon">
-                {isDarkMode ? '🌙' : '☀️'}
+                {isDarkMode ? "🌙" : "☀️"}
               </span>
             </span>
           </label>
@@ -114,4 +180,3 @@ const Navigation: React.FC<NavigationProps> = ({
 };
 
 export default Navigation;
-
