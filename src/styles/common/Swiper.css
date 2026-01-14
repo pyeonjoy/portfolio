@@ -272,6 +272,77 @@
     width: 7px;
     height: 7px;
   }
+
+  /* 모바일 스와이퍼 래퍼 조정 */
+  .portfolioSwiperWrapper {
+    width: 100%;
+    padding: 0 0.5rem;
+  }
+
+  /* 모바일 버튼 크기 및 위치 조정 */
+  .portfolioSwiperButton {
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+    position: absolute;
+    z-index: 20;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .portfolioSwiperButton--prev {
+    left: 0.25rem;
+  }
+
+  .portfolioSwiperButton--next {
+    right: 0.25rem;
+  }
+
+  /* 모바일 뷰포트 조정 */
+  .portfolioSwiperViewport {
+    width: 100%;
+    margin: 0;
+  }
+
+  /* 모바일 슬라이드 조정 */
+  .portfolioSwiperSlide {
+    padding: 0.5rem;
+    gap: 1rem;
+  }
+
+  /* 모바일 이미지 조정 */
+  .portfolioSwiperImage {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* 모바일 오버레이 콘텐츠 조정 */
+  .portfolioSwiperContentOverlay {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  /* 모바일 패딩 조정 */
+  .portfolioImagePlaceholder--swiper {
+    padding: 0;
+  }
+
+  /* 모바일 원본 사이즈 컨테이너 조정 */
+  .portfolioImageContainer--original .portfolioImagePlaceholder--swiper {
+    padding: 1rem;
+    min-height: auto;
+    border-width: 1px;
+  }
+
+  .portfolioImageContainer--original .portfolioSwiperSlide {
+    padding: 0.5rem;
+  }
+
+  .portfolioImageContainer--original .portfolioSwiperImage {
+    max-height: 200px;
+  }
 }
 /* Project01 (CampYou) 색상 오버라이드 */
 .portfolioItemContent--campyou {

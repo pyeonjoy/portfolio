@@ -46,3 +46,36 @@
   margin: 0;
   word-break: keep-all;
 }
+
+/* 모바일 반응형 스타일 */
+@media (max-width: 768px) {
+  .portfolioSwiperContentOverlay .planningSectionTitle {
+    font-size: 18px;
+    margin-bottom: 1rem;
+  }
+
+  .portfolioSwiperContentOverlay .features {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .portfolioSwiperContentOverlay .featureItem {
+    flex: none;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .portfolioSwiperContentOverlay .featureImage {
+    width: 60px;
+    height: 60px;
+  }
+
+  .portfolioSwiperContentOverlay .featureTitle {
+    font-size: 15px;
+  }
+
+  .portfolioSwiperContentOverlay .featureText {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+}
