@@ -189,3 +189,36 @@
     transform: translateY(0);
   }
 }
+@media screen and (max-width: 768px) {
+  .portfolioSitemapModal {
+    padding: 0;
+  }
+  .portfolioSitemapModalContent {
+    padding: 1rem;
+  }
+  .portfolioSitemapCloseButton {
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+  }
+  .portfolioSitemapSliderButton {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+  }
+  .portfolioSitemapSliderButton--next {
+    right: 0.2rem;
+  }
+  .portfolioSitemapSliderButton--prev {
+    left: 0.2rem;
+  }
+  .portfolioSitemapSliderPagination {
+    bottom: 0.2rem;
+  }
+  .portfolioSitemapSliderDot {
+    width: 8px;
+    height: 8px;
+  }
+}

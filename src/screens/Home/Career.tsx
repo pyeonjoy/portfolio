@@ -9,7 +9,7 @@ const Career: React.FC = () => {
   const careers: CareerItemProps[] = [
     {
       title: "(주) APST",
-      period: "25.01 ~ 25.03 (3개월)",
+      period: "24.11 ~ 25.02 (3개월)",
       description:
         "현대오일뱅크 FMS Service 리팩토링, nosql 대용량 시계열 데이터 처리",
       reason: "계약 종료",
